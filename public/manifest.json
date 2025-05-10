@@ -1,0 +1,16 @@
+{
+  "short_name": "QuoteCraft",
+  "name": "QuoteCraft",
+  "description": "QuoteCraft un'applicazione web che permetta agli utenti di generare preventivi personalizzati per i loro prodotti o servizi. L'applicazione offrirà un'interfaccia intuitiva per definire i parametri del preventivo, eseguire calcoli automatici e generare report dettagliati.",
+  "icons": [
+    {
+      "src": "favicon.ico",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}
