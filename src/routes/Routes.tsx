@@ -18,11 +18,11 @@ import { ProtectedRoute } from '@/components'
 
 const router = createBrowserRouter([
   {
-    path: '/login',
+    path: '/auth',
     element: <AuthLayout />,
     children: [
       {
-        path: '',
+        path: 'login',
         caseSensitive: true,
         element: <Login />
         // errorElement: <div>Auth Error Page</div>,
@@ -43,7 +43,7 @@ const router = createBrowserRouter([
     // errorElement: <div>Auth Error Page</div>,
   },
   {
-    path: '/',
+    path: '/dashboard',
     element: (
       <ProtectedRoute>
         <DashboardLayout />
@@ -51,31 +51,31 @@ const router = createBrowserRouter([
     ),
     children: [
       {
-        path: '/invoices',
+        path: 'invoices',
         caseSensitive: true,
         element: <Invoices />
         // errorElement: <div>Dashboard Error</div>,
       },
       {
-        path: '/analytics',
+        path: 'analytics',
         caseSensitive: true,
         element: <Analytics />
         // errorElement: <div>Dashboard Error</div>,
       },
       {
-        path: '/parameters',
+        path: 'parameters',
         caseSensitive: true,
         element: <Parameters />
         // errorElement: <div>Dashboard Error</div>,
       },
       {
-        path: '/customers',
+        path: 'customers',
         caseSensitive: true,
         element: <Customers />
         // errorElement: <div>Dashboard Error</div>,
       },
       {
-        path: '/settings',
+        path: 'settings',
         caseSensitive: true,
         element: <Settings />
         // errorElement: <div>Dashboard Error</div>,

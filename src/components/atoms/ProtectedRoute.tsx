@@ -1,9 +1,5 @@
 import React, { type JSX } from 'react'
-
-// -------------- INTERFACES
-interface IProtectedRouteProps {
-  children: JSX.Element
-}
+import type { IProtectedRouteProps } from '@/components/atoms/types'
 
 /**
  * @description ProtectedRoute is a component that wraps its children with a div element.

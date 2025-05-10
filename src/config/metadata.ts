@@ -34,9 +34,9 @@ export const appConfig: TAppConfig = {
     metadata: {
         default: {
             title: 'Home',
-            description: 'Discover our fantastic products and services',
-            keywords: ['home', 'products', 'cart', 'services'],
-            route: '/'
+            description: 'Discover our fantastic services',
+            keywords: ['home', 'services'],
+            route: '/home'
         },
         invoices: {
             title: 'Invoices',
