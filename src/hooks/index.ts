@@ -1,3 +1,3 @@
-import useCheckJWTExpiration from "./useCheckJWTExpiration";
+import useCheckJWTExpiration from './useCheckJWTExpiration'
 
 export { useCheckJWTExpiration }
