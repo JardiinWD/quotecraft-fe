@@ -1,5 +1,7 @@
 import React, { type JSX } from 'react'
 import type { IProtectedRouteProps } from '@/components/atoms/types'
+import { useAuthStore } from '@/stores'
+import { Navigate } from 'react-router-dom'
 
 /**
  * @description ProtectedRoute is a component that wraps its children with a div element.
@@ -11,6 +13,11 @@ const ProtectedRoute: React.FC<IProtectedRouteProps> = ({
   children
 }): JSX.Element => {
   // -------------- ZUSTAND STORE
+  const isLoggedIn = useAuthStore((state) => state.isLoggedIn)
+
+  // -------------- REDIRECT TO LOGIN
+  if (!isLoggedIn) return <Navigate to="/auth/login" replace />
+
   return children
 }
 

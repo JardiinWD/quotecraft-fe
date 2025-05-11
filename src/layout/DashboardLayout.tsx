@@ -9,7 +9,8 @@ const DashboardLayout: React.FC = (): JSX.Element => {
 
   // -------------- HELMET DATA
   const { title, description, keywords, route } = retrieveHelmetData(
-    location.pathname ?? 'invoices'
+    location.pathname,
+    'dashboard'
   )
 
   // Check if the user has landed on the /dashboard route

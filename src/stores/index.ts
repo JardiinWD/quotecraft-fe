@@ -1,4 +1,4 @@
-// --> Quote Craft Auth Store
+// -->  Auth Store
 import useAuthStore from "./useAuthStore";
 
 export { useAuthStore };

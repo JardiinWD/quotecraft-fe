@@ -36,37 +36,37 @@ export const appConfig: TAppConfig = {
             title: 'Home',
             description: 'Discover our fantastic services',
             keywords: ['home', 'services'],
-            route: '/home'
+            route: '/dashboard'
         },
         invoices: {
             title: 'Invoices',
             description: 'Manage your invoices and payments',
             keywords: ['invoices', 'payments', 'billing'],
-            route: '/invoices'
+            route: '/dashboard/invoices'
         },
         analytics: {
             title: 'Analytics',
             description: 'Analyze your data and performance',
             keywords: ['analytics', 'data', 'performance'],
-            route: '/analytics'
+            route: '/dashboard/analytics'
         },
         parameters: {
             title: 'Parameters',
             description: 'Configure your invoices settings',
             keywords: ['parameters', 'settings', 'configuration'],
-            route: '/parameters'
+            route: '/dashboard/parameters'
         },
         customers: {
             title: 'Customers',
             description: 'Manage your customers and contacts',
             keywords: ['customers', 'contacts', 'management'],
-            route: '/customers'
+            route: '/dashboard/customers'
         },
         settings: {
             title: 'Settings',
             description: 'Configure your application settings',
             keywords: ['settings', 'configuration', 'preferences'],
-            route: '/settings'
+            route: '/dashboard/settings'
         },
         singleInvoice: {
             title: 'Single Invoice',
@@ -83,19 +83,19 @@ export const appConfig: TAppConfig = {
             title: 'Login',
             description: 'Login to your account',
             keywords: ['login', 'authentication', 'access'],
-            route: '/login'
+            route: '/auth/login'
         },
         register: {
             title: 'Register',
             description: 'Create a new account',
             keywords: ['register', 'signup', 'create account'],
-            route: '/register'
+            route: '/auth/register'
         },
         forgotPassword: {
             title: 'Forgot Password',
             description: 'Reset your password',
             keywords: ['forgot password', 'reset password', 'authentication'],
-            route: '/forgot-password'
+            route: '/auth/forgot-password'
         },
     }
 }
