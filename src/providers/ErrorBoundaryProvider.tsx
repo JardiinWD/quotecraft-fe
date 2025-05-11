@@ -2,19 +2,19 @@ import type { JSX } from 'react'
 import { ErrorBoundary as ReactErrorBoundary } from 'react-error-boundary'
 
 // -------------- INTERFACES
-interface ErrorBoundaryProviderProps {
+interface IErrorBoundaryProviderProps {
   children: React.ReactNode
   customFallback?: JSX.Element
 }
 
 /**
  * @description ErrorBoundaryProvider wraps its children with an error boundary to catch and handle errors.
- * @param {ErrorBoundaryProviderProps} children - Represents the content to be rendered within the error boundary.
+ * @param {IErrorBoundaryProviderProps} children - Represents the content to be rendered within the error boundary.
  */
 export const ErrorBoundaryProvider = ({
   children,
   customFallback = <div>Something went Wrong</div>
-}: ErrorBoundaryProviderProps) => {
+}: IErrorBoundaryProviderProps) => {
   return (
     <ReactErrorBoundary fallback={customFallback} onError={logError}>
       {children}

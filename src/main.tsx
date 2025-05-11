@@ -5,15 +5,18 @@ import 'tailwindcss/tailwind.css'
 import {
   HelmetProvider,
   ReactRouterProvider,
-  ErrorBoundaryProvider
+  ErrorBoundaryProvider,
+  ChakraProvider
 } from '@/providers'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <ErrorBoundaryProvider>
-      <HelmetProvider>
-        <ReactRouterProvider />
-      </HelmetProvider>
+      <ChakraProvider>
+        <HelmetProvider>
+          <ReactRouterProvider />
+        </HelmetProvider>
+      </ChakraProvider>
     </ErrorBoundaryProvider>
   </StrictMode>
 )

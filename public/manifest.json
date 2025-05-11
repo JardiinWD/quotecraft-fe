@@ -4,8 +4,8 @@
   "description": "QuoteCraft un'applicazione web che permetta agli utenti di generare preventivi personalizzati per i loro prodotti o servizi. L'applicazione offrirà un'interfaccia intuitiva per definire i parametri del preventivo, eseguire calcoli automatici e generare report dettagliati.",
   "icons": [
     {
-      "src": "favicon.ico",
-      "sizes": "64x64 32x32 24x24 16x16",
+      "src": "./quotecraft-favicon.png",
+      "sizes": "32x32",
       "type": "image/x-icon"
     }
   ],

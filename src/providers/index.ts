@@ -1,8 +1,15 @@
 // --> Helmet Provider
-import { HelmetProvider } from "./HelmetProvider";
+import { HelmetProvider } from './HelmetProvider'
 // --> React Router Provider
-import { ReactRouterProvider } from "./ReactRouterProvider";
+import { ReactRouterProvider } from './ReactRouterProvider'
 // --> Error Boundary
-import { ErrorBoundaryProvider } from "./ErrorBoundaryProvider";
+import { ErrorBoundaryProvider } from './ErrorBoundaryProvider'
+// --> Chakra Provider
+import { ChakraProvider } from './ChakraProvider'
 
-export { HelmetProvider, ReactRouterProvider, ErrorBoundaryProvider };
+export {
+  HelmetProvider,
+  ReactRouterProvider,
+  ErrorBoundaryProvider,
+  ChakraProvider
+}
