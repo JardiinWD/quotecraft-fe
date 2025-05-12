@@ -1,4 +1,6 @@
-export const ChakraColors = {
+import type { TChakraCustomStyle } from '@/assets/styles/chakra/custom/types'
+
+export const ChakraColors: TChakraCustomStyle['colors'] = {
   primary: { value: '#0FEE0F' },
   secondary: { value: '#EE0F0F' },
   gray: {

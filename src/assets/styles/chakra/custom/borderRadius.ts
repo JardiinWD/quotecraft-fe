@@ -1,4 +1,6 @@
-export const ChakraBorderRadius = {
+import type { TChakraCustomStyle } from '@/assets/styles/chakra/custom/types'
+
+export const ChakraBorderRadius: TChakraCustomStyle['radii'] = {
   none: { value: 0 },
   sm: { value: '0.125rem' }, // 2px
   base: { value: '0.25rem' }, // 4px

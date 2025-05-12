@@ -1,4 +1,6 @@
-export const ChakraLineHeights = {
+import type { TChakraCustomStyle } from '@/assets/styles/chakra/custom/types'
+
+export const ChakraLineHeights: TChakraCustomStyle['lineHeights'] = {
   normal: { value: 'normal' },
   none: { value: 1 },
   shorter: { value: 1.25 },

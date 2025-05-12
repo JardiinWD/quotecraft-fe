@@ -8,7 +8,9 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "prettier": "prettier --write \"src/**/*.{ts,tsx,js,jsx,json,css,scss}\" \"cypress/**/*.{ts,js,json}\"",
-    "generate:chakra-tokens": "npx @chakra-ui/cli typegen ./src/assets/styles/chakra/chakra-theme.ts"
+    "generate:chakra-tokens": "npx @chakra-ui/cli typegen ./src/assets/styles/chakra/chakra-theme.ts",
+    "open:cypress": "cypress open --config-file cypress.config.ts",
+    "run:cypress": "cypress run --config-file cypress.config.ts"
   },
   "dependencies": {
     "@chakra-ui/react": "^3.17.0",
@@ -31,6 +33,7 @@
     "@types/react-dom": "^19.1.2",
     "@vitejs/plugin-react": "^4.4.1",
     "autoprefixer": "^10.4.21",
+    "cypress": "^14.3.3",
     "dotenv": "^16.5.0",
     "eslint": "^9.25.0",
     "eslint-plugin-react-hooks": "^5.2.0",
@@ -44,5 +47,12 @@
     "vite": "^6.3.5",
     "vite-plugin-minify": "^2.1.0",
     "vite-plugin-svgr": "^4.3.0"
+  },
+  "resolutions": {
+    "string-width": "4.2.3",
+    "strip-ansi": "6.0.1",
+    "ansi-regex": "5.0.1",
+    "wrap-ansi": "7.0.0",
+    "emoji-regex": "8.0.0"
   }
 }

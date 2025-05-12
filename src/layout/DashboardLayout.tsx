@@ -18,7 +18,7 @@ const DashboardLayout: React.FC = (): JSX.Element => {
     return <Navigate to="/dashboard/invoices" />
 
   return (
-    <div className="flex flex-col w-full h-screen bg-blue-500">
+    <div className="flex flex-col w-full h-screen">
       {/* METADATA  */}
       <Helmet
         title={title}

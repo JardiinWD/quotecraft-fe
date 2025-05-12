@@ -13,8 +13,6 @@ const AuthLayout: React.FC = (): JSX.Element => {
     'auth'
   )
 
-  console.log('AuthLayout: ', location.pathname)
-
   // Check if the user has landed on the /dashboard route
   if (location.pathname === '/auth') return <Navigate to="/auth/login" />
 

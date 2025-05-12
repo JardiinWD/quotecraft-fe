@@ -1,4 +1,7 @@
-export const ChakraFonts = {
+import type { TChakraCustomStyle } from '@/assets/styles/chakra/custom/types'
+
+// --> Chakra UI fonts
+export const ChakraFonts: TChakraCustomStyle['fonts'] = {
   // --> Inter font
   inter: {
     value:

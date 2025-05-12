@@ -1,4 +1,6 @@
-export const ChakraFontWeights = {
+import type { TChakraCustomStyle } from '@/assets/styles/chakra/custom/types'
+
+export const ChakraFontWeights: TChakraCustomStyle['fontWeights'] = {
   hairline: { value: 100 },
   thin: { value: 200 },
   light: { value: 300 },

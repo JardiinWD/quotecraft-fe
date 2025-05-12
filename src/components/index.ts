@@ -1,6 +1,8 @@
 // --> Atoms
 import Helmet from './atoms/Helmet'
 import ProtectedRoute from './atoms/ProtectedRoute'
+import Typography from './atoms/Typography'
+import Button from './atoms/Button'
 
 // --> Molecules
 
@@ -8,4 +10,4 @@ import ProtectedRoute from './atoms/ProtectedRoute'
 
 // --> UI
 
-export { ProtectedRoute, Helmet }
+export { ProtectedRoute, Helmet, Typography, Button }
