@@ -1,4 +1,3 @@
-
 // --> Quote Craft Atoms Types
 import type { JSX } from 'react'
 
@@ -8,7 +7,8 @@ import type { JSX } from 'react'
 
 // --> Possible Rounding types
 
-type TCustomRounded = | 'none'
+type TCustomRounded =
+  | 'none'
   | 'sm'
   | 'base'
   | 'md'
@@ -19,7 +19,8 @@ type TCustomRounded = | 'none'
   | '4xl'
   | 'full'
 
-type TCustomColorPalette = | 'gray'
+type TCustomColorPalette =
+  | 'gray'
   | 'black'
   | 'red'
   | 'cyan'
@@ -27,6 +28,8 @@ type TCustomColorPalette = | 'gray'
   | 'teal'
   | 'green'
   | 'orange'
+
+export type TCustomSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl'
 
 // -------------
 // ------------- HELMET
@@ -82,8 +85,6 @@ export interface ITypographyProps {
   dataTestId?: string
 }
 
-
-
 // -------------
 // ------------- BUTTON
 // -------------
@@ -91,12 +92,9 @@ export interface ITypographyProps {
 // --> Button Variants
 export type TButtonVariant = 'solid' | 'outline' | 'ghost' | 'plain' | 'surface'
 
-// --> Button Sizes
-export type TButtonSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl'
-
 // --> Button props
 export interface IButtonProps {
-  size: TButtonSize
+  size: TCustomSize
   variant: TButtonVariant
   colorPalette: TCustomColorPalette
   backgroundColor?: string
@@ -116,4 +114,25 @@ export interface IButtonProps {
   dataTestId?: string
   padding?: string
   className?: string
+}
+
+// -------------
+// ------------- INPUT
+// -------------
+
+type TFormInputType = 'text' | 'email' | 'password'
+
+export interface IInputProps {
+  variant?: 'subtle' | 'outline' | 'flushed'
+  size?: TCustomSize
+  isRequired?: boolean
+  helperText?: string
+  label?: string
+  errorText?: string
+  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void
+  placeholder?: string
+  dataTestId?: string
+  inputClassName?: string
+  inputId?: string
+  type: TFormInputType
 }
