@@ -34,6 +34,7 @@ const Login: React.FC = (): JSX.Element => {
           import.meta.env.VITE_APPWRITE_LOGIN_COLLECTION_ID
         )
 
+      // Check if the response is valid
       if (error || status !== 'success') throw new Error(`${error as string}`)
 
       // Retrieve the Locale
@@ -46,10 +47,6 @@ const Login: React.FC = (): JSX.Element => {
       }
     }
   })
-
-  console.log('====================================')
-  console.log('apiData', apiData)
-  console.log('====================================')
 
   // -------------- HANDLERS
 
@@ -94,6 +91,7 @@ const Login: React.FC = (): JSX.Element => {
 
   return (
     <LoginForm
+      translations={apiData?.translations as Record<string, string>}
       authenticationError={state.authenticationError as string}
       onSubmit={handleLogin}
     />

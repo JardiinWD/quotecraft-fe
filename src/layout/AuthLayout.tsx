@@ -14,13 +14,6 @@ const AuthLayout: React.FC = (): JSX.Element => {
     'auth'
   )
 
-  console.log('====================================')
-  console.log('AuthLayout -> helmet title', title)
-  console.log('AuthLayout -> helmet description', description)
-  console.log('AuthLayout -> helmet keywords', keywords)
-  console.log('AuthLayout -> helmet title', title, description, keywords, route)
-  console.log('====================================')
-
   // Check if the user has landed on the /dashboard route
   if (location.pathname === '/auth') return <Navigate to="/auth/login" />
 

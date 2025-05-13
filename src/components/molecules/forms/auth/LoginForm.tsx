@@ -9,9 +9,16 @@ import {
 import { ILoginFormProps } from '@/components/molecules/types'
 import { Button, FlexContainer, Input, Typography } from '@/components/atoms'
 
+/**
+ * @description LoginForm component
+ * @param {string} authenticationError - Optional error message for authentication
+ * @param {function} onSubmit - Function to handle form submission
+ * @param {object} translations - Optional translations object
+ */
 const LoginForm: React.FC<ILoginFormProps> = ({
   authenticationError,
-  onSubmit
+  onSubmit,
+  translations
 }): JSX.Element => {
   // -------------- REACT HOOK FORM
   const {
@@ -21,6 +28,8 @@ const LoginForm: React.FC<ILoginFormProps> = ({
   } = useForm<TLoginFormValues>({
     resolver: zodResolver(loginSchema)
   })
+
+  console.log('Translations Received in LoginForm', translations)
 
   return (
     <Box
@@ -57,7 +66,7 @@ const LoginForm: React.FC<ILoginFormProps> = ({
           textLineHeight="shorter"
           uppercase={false}
           className="text-left"
-          text="Sign In to your account"
+          text={translations?.['signin-form-heading'] as string}
           textStyle="2xl"
         />
         <Typography

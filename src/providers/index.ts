@@ -9,9 +9,6 @@ import { ChakraProvider } from './ChakraProvider'
 // --> React Query Provider
 import QueryProvider from './QueryProvider'
 
-
-
-
 export {
   HelmetProvider,
   ReactRouterProvider,

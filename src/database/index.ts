@@ -1,9 +1,8 @@
 // ------------ APP WRITE
-import { AppWriteDB, AppWriteAccount } from "./appwrite/Appwrite";
-
+import { AppWriteDB, AppWriteAccount } from './appwrite/Appwrite'
 
 export {
-    // ------------ APP WRITE
-    AppWriteDB,
-    AppWriteAccount,
+  // ------------ APP WRITE
+  AppWriteDB,
+  AppWriteAccount
 }

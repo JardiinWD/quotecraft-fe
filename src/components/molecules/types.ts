@@ -9,4 +9,7 @@ export interface ILoginFormProps {
   formId?: string
   authenticationError?: string
   onSubmit: (data: TLoginFormValues) => void
+  translations?: {
+    [key: string]: string
+  }
 }
