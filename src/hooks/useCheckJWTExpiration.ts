@@ -14,7 +14,7 @@ const useCheckJWTExpiration = (expirationDate: Date | null): void => {
     // If no expiration date is provided, clear auth state and redirect to login
     if (!expirationDate) {
       // clearUserId() // Clear auth data
-      navigate('/login', { replace: true })
+      navigate('/auth/login', { replace: true })
       return
     }
 
@@ -28,7 +28,7 @@ const useCheckJWTExpiration = (expirationDate: Date | null): void => {
     if (expiration.getTime() <= Date.now()) {
       console.warn('Token has expired. Redirecting to login...')
       // clearUserId() // Clear auth data
-      navigate('/login', { replace: true })
+      navigate('/auth/login', { replace: true })
     }
 
     // Set up a check that will run when the token expires
@@ -39,7 +39,7 @@ const useCheckJWTExpiration = (expirationDate: Date | null): void => {
       const logoutTimer = setTimeout(() => {
         console.warn('Token has expired. Logging out...')
         // clearUserId()
-        navigate('/login', { replace: true })
+        navigate('/auth/login', { replace: true })
       }, timeUntilExpiry)
 
       // Clean up the timer on unmount

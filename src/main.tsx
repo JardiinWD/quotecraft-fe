@@ -6,17 +6,24 @@ import {
   HelmetProvider,
   ReactRouterProvider,
   ErrorBoundaryProvider,
-  ChakraProvider
+  ChakraProvider,
+  QueryProvider
 } from '@/providers'
+import { LanguageSetter } from '@/components/atoms'
+
+LanguageSetter
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <ErrorBoundaryProvider>
-      <ChakraProvider>
-        <HelmetProvider>
-          <ReactRouterProvider />
-        </HelmetProvider>
-      </ChakraProvider>
+      <QueryProvider>
+        <ChakraProvider>
+          <HelmetProvider>
+            <ReactRouterProvider />
+            <LanguageSetter />
+          </HelmetProvider>
+        </ChakraProvider>
+      </QueryProvider>
     </ErrorBoundaryProvider>
   </StrictMode>
 )

@@ -25,7 +25,7 @@ const AuthLayout: React.FC = (): JSX.Element => {
   if (location.pathname === '/auth') return <Navigate to="/auth/login" />
 
   return (
-    <div>
+    <React.Fragment>
       {/* METADATA */}
       <Helmet
         title={title}
@@ -44,12 +44,12 @@ const AuthLayout: React.FC = (): JSX.Element => {
         dataTestId={`${title}-auth-page`}
         backgroundColor="gray.100"
       >
-        {/* LOGIN ILLUSTRATION CONTAINER */}
+        {/* AUTH LAYOUT ILLUSTRATION CONTAINER */}
         <FlexContainer
           direction="row"
           justify="center"
           align="center"
-          className="!hidden lg:w-[60%] lg:!flex h-full"
+          className="!hidden lg:w-[50%] lg:!flex h-full"
           flexContainerId={`${title}-auth-illustration`}
           dataTestId={`${title}-auth-illustration`}
         >
@@ -60,11 +60,12 @@ const AuthLayout: React.FC = (): JSX.Element => {
             htmlHeight={550}
           />
         </FlexContainer>
+        {/* AUTH LAYOUT OUTLET CONTAINER */}
         <FlexContainer
           direction="row"
           justify="center"
           align="center"
-          className="!hidden lg:w-[40%] lg:!flex h-full"
+          className="w-[100%] lg:w-[50%] lg:!flex h-full"
           flexContainerId={`${title}-auth-form`}
           dataTestId={`${title}-auth-form`}
           backgroundColor="red.500"
@@ -72,7 +73,7 @@ const AuthLayout: React.FC = (): JSX.Element => {
           <Outlet />
         </FlexContainer>
       </FlexContainer>
-    </div>
+    </React.Fragment>
   )
 }
 

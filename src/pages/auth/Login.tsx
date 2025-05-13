@@ -4,8 +4,9 @@ import { useAuthStore } from '@/stores'
 import { useNavigate } from 'react-router-dom'
 import { jwtDecode } from 'jwt-decode'
 import { transformJwtExpirationDate } from '@/functions/common'
-import { IMockAuthApi } from '@/api'
+import { AppWriteApi, MockAuthApi } from '@/api'
 import { IAuthData } from '@/api/types'
+import { useQuery } from '@tanstack/react-query'
 
 // -------------- INTERFACES
 interface IState {
@@ -21,6 +22,35 @@ const Login: React.FC = (): JSX.Element => {
   // -------------- HOOKS
   const navigate = useNavigate()
 
+  // -------------- API CALLS
+  const { data: apiData } = useQuery({
+    queryKey: ['products'],
+    staleTime: 5000,
+    queryFn: async () => {
+      // Get the Data from the API
+      const { data, error, status } =
+        await AppWriteApi.getCollectionFromAppwriteDB(
+          import.meta.env.VITE_APPWRITE_DATABASE_ID,
+          import.meta.env.VITE_APPWRITE_LOGIN_COLLECTION_ID
+        )
+
+      if (error || status !== 'success') throw new Error(`${error as string}`)
+
+      // Retrieve the Locale
+      const { locale } = await AppWriteApi.getNavigatorLocale()
+      // Return the necessary data
+      return {
+        translations: data,
+        lang: locale.language,
+        countryCode: locale.countryCode
+      }
+    }
+  })
+
+  console.log('====================================')
+  console.log('apiData', apiData)
+  console.log('====================================')
+
   // -------------- HANDLERS
 
   /**
@@ -34,7 +64,7 @@ const Login: React.FC = (): JSX.Element => {
         data: authData,
         error: authError,
         status: authStatus
-      } = await IMockAuthApi.handleLogin(data.username, data.password)
+      } = await MockAuthApi.handleLogin(data.username, data.password)
       // If there are Any error occured then catch it
       if (authError || authStatus !== 'success')
         throw new Error(`${authError as string}`)

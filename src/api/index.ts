@@ -1,9 +1,9 @@
 // --> Quote Craft APIs
 
 // --> Authentication (Mocked)
-import { IMockAuthApi } from "./auth/mock";
+import { MockAuthApi } from './auth/mock'
+// --> AppWrite Api
+import { AppWriteApi } from './appwrite/appwrite'
 
 
-export {
-    IMockAuthApi
-}
+export { MockAuthApi, AppWriteApi }
