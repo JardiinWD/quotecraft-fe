@@ -19,9 +19,9 @@ import type { IInputProps } from '@/components/atoms/types'
  * @returns {JSX.Element} Input component with label, helper text and error message support
  */
 const Input: React.FC<IInputProps> = ({
-  variant = 'outline',
-  size = 'md',
-  isRequired = false,
+  variant = 'subtle',
+  size = 'sm',
+  isRequired,
   helperText,
   label,
   errorText,
@@ -30,13 +30,18 @@ const Input: React.FC<IInputProps> = ({
   dataTestId = 'input-field',
   inputClassName = '',
   inputId = 'input-field',
-  type = 'text'
+  type = 'text',
+  register
 }): JSX.Element => {
   return (
     <Field.Root invalid>
       {label && (
         /* LABEL */
-        <Field.Label fontWeight={400} fontSize="sm" mb={1}>
+        <Field.Label
+          data-testid={`input-${dataTestId}-label`}
+          fontWeight={400}
+          fontSize="sm"
+        >
           {label} {isRequired && <Field.RequiredIndicator />}
         </Field.Label>
       )}
@@ -44,22 +49,39 @@ const Input: React.FC<IInputProps> = ({
       <ChakraInput
         variant={variant}
         size={size}
+        fontSize={'md'}
+        fontWeight={400}
+        borderRadius={'md'}
+        padding={2}
         onChange={onChange}
         placeholder={placeholder}
         data-testid={dataTestId}
         className={inputClassName}
-        id={inputId}
+        backgroundColor={'white'}
+        id={`${inputId}-input`}
         type={type}
+        {...register}
       />
       {/* HELPER TEXT */}
       {helperText && !errorText && (
-        <Field.HelperText fontWeight={400} fontSize="sm" mb={1}>
+        <Field.HelperText
+          data-testid={`input-${dataTestId}-helper-text`}
+          fontWeight={400}
+          fontSize="2xs"
+          fontStyle={'italic'}
+        >
           {helperText}
         </Field.HelperText>
       )}
       {/* ERROR TEXT */}
       {errorText && (
-        <Field.ErrorText fontWeight={400} fontSize="sm" mb={1}>
+        <Field.ErrorText
+          data-testid={`input-${dataTestId}-error-text`}
+          fontWeight={400}
+          fontSize="2xs"
+          fontStyle={'italic'}
+          color="red.500"
+        >
           {errorText}
         </Field.ErrorText>
       )}

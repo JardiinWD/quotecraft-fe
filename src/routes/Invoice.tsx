@@ -4,7 +4,7 @@ import { SingleInvoice } from '@/pages'
 // --> Layouts
 import { InvoiceLayout } from '@/layout'
 // --> Components
-import { ProtectedRoute } from '@/components'
+import { ProtectedRoute } from '@/components/atoms'
 
 const Invoice: RouteObject = {
   path: '/invoices/:id',

@@ -23,6 +23,9 @@ import type { IButtonProps } from '@/components/atoms/types'
  * @param {string} textColor - The text color of the button. Default is 'black.500'.
  * @param {string} padding - The padding of the button. Default is '0.5rem 1rem'.
  * @param {string} className - Additional class names for the button.
+ * @param {string} fontSize - The font size of the button text. Default is 'sm'.
+ * @param {string} fontWeight - The font weight of the button text. Default is 'normal'.
+ *
  * @returns {JSX.Element} The rendered button component.
  */
 const Button: React.FC<IButtonProps> = ({
@@ -44,7 +47,10 @@ const Button: React.FC<IButtonProps> = ({
   backgroundColor = 'gray.100',
   textColor = 'black.500',
   padding = '0.5rem 1rem',
-  className = ''
+  className = '',
+  fontSize = 'sm',
+  fontWeight = 'normal',
+  width = 'full'
 }): JSX.Element => {
   return (
     <ChakraButton
@@ -65,6 +71,9 @@ const Button: React.FC<IButtonProps> = ({
       onClick={onClick}
       formTarget={formId}
       className={className}
+      fontSize={fontSize}
+      fontWeight={fontWeight}
+      width={width}
     >
       {icon && icon}
       {buttonText}

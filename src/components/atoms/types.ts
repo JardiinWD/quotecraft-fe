@@ -96,7 +96,7 @@ export type TButtonVariant = 'solid' | 'outline' | 'ghost' | 'plain' | 'surface'
 export interface IButtonProps {
   size: TCustomSize
   variant: TButtonVariant
-  colorPalette: TCustomColorPalette
+  colorPalette?: TCustomColorPalette
   backgroundColor?: string
   textColor?: string
   buttonText?: string
@@ -114,6 +114,9 @@ export interface IButtonProps {
   dataTestId?: string
   padding?: string
   className?: string
+  fontSize?: string
+  fontWeight?: string
+  width?: string | number
 }
 
 // -------------
@@ -134,5 +137,7 @@ export interface IInputProps {
   dataTestId?: string
   inputClassName?: string
   inputId?: string
-  type: TFormInputType
+  type?: TFormInputType
+  register?: ReturnType<any>
+  className?: string
 }

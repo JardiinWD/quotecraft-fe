@@ -1,7 +1,7 @@
 import type { TChakraCustomStyle } from '@/assets/styles/chakra/custom/types'
 
 export const ChakraFontSizes: TChakraCustomStyle['fontSizes'] = {
-  '2xs': { value: '0.625rem' }, // 10px
+  '2xs': { value: '0.35rem' }, // 10px
   xs: { value: '0.75rem' }, // 12px
   sm: { value: '0.875rem' }, // 14px
   md: { value: '1rem' }, // 16px

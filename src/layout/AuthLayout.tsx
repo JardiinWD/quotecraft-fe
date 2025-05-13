@@ -1,6 +1,6 @@
 import React, { type JSX } from 'react'
 import { Navigate, Outlet, useLocation } from 'react-router-dom'
-import { Helmet } from '@/components'
+import { Helmet } from '@/components/atoms'
 import { retrieveHelmetData } from '@/functions/metadata'
 
 const AuthLayout: React.FC = (): JSX.Element => {

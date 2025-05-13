@@ -4,7 +4,7 @@ import { Analytics, Customers, Invoices, Parameters, Settings } from '@/pages'
 // --> Layouts
 import { DashboardLayout } from '@/layout'
 // --> Components
-import { ProtectedRoute } from '@/components'
+import { ProtectedRoute } from '@/components/atoms'
 
 const Dashboard: RouteObject = {
   path: '/dashboard',
