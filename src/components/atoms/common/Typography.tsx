@@ -1,6 +1,6 @@
 import { Text } from '@chakra-ui/react'
-import React, { type JSX } from 'react'
-import { type ITypographyProps } from '@/components/atoms/types'
+import React, { JSX } from 'react'
+import { ITypographyProps } from '@/components/atoms/types'
 
 /**
  * @description Renders a typography component with customizable variant, weight, alignment, and styling.
@@ -20,7 +20,7 @@ import { type ITypographyProps } from '@/components/atoms/types'
  */
 const Typography: React.FC<ITypographyProps> = ({
   tagAs = 'p',
-  textColor = 'red.300',
+  textColor = 'black.50',
   fontFamily = 'inter',
   textId = '',
   weight = 'regular',
@@ -31,12 +31,14 @@ const Typography: React.FC<ITypographyProps> = ({
   htmlString = '',
   style = {},
   dataTestId = '',
-  textStyle = '2xl'
+  textStyle = 'sm',
+  fontSize = 'sm'
 }): JSX.Element => {
   return htmlString ? (
     <Text
       color={textColor}
       textStyle={textStyle}
+      fontSize={fontSize}
       fontFamily={fontFamily}
       as={tagAs}
       style={style}

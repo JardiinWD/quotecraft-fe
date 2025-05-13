@@ -1,4 +1,4 @@
-import React, { type JSX } from 'react'
+import React, { JSX } from 'react'
 import { Navigate, Outlet, useLocation } from 'react-router-dom'
 import { Helmet } from '@/components/atoms'
 import { retrieveHelmetData } from '@/functions/metadata'

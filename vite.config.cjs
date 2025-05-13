@@ -10,7 +10,8 @@ dotenv.config();
 // https://vite.dev/config/
 module.exports = defineConfig({
     define: {
-
+        /* DUMMY JSON BASE URLL */
+        VITE_DUMMY_JSON_BASEURL: `"${process.env.VITE_DUMMY_JSON_BASEURL}"`,
     },
     plugins: [react(), tsconfigPaths(), svgr(), ViteMinifyPlugin({})],
     server: {

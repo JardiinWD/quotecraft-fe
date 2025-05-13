@@ -1,6 +1,6 @@
-import React, { type JSX } from 'react'
+import React, { JSX } from 'react'
 import { Button as ChakraButton } from '@chakra-ui/react'
-import type { IButtonProps } from '@/components/atoms/types'
+import { IButtonProps } from '@/components/atoms/types'
 
 /**
  * @description Button component that renders a Chakra UI button with customizable properties.
@@ -32,7 +32,7 @@ const Button: React.FC<IButtonProps> = ({
   size = 'md',
   buttonText,
   variant = 'solid',
-  colorPalette = 'gray',
+  colorPalette = 'red',
   icon,
   disabled = false,
   loading = false,
@@ -44,8 +44,8 @@ const Button: React.FC<IButtonProps> = ({
   type = 'button',
   buttonId,
   dataTestId,
-  backgroundColor = 'gray.100',
-  textColor = 'black.500',
+  backgroundColor = 'black',
+  textColor = 'gray.100',
   padding = '0.5rem 1rem',
   className = '',
   fontSize = 'sm',
@@ -73,6 +73,10 @@ const Button: React.FC<IButtonProps> = ({
       className={className}
       fontSize={fontSize}
       fontWeight={fontWeight}
+      _hover={{
+        backgroundColor: `${colorPalette}.500`,
+        color: `${colorPalette}.100`
+      }}
       width={width}
     >
       {icon && icon}

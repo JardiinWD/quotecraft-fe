@@ -1,10 +1,12 @@
+import { IAuthData } from '@/api/types'
 import { create } from 'zustand'
 import { persist } from 'zustand/middleware'
 
 interface AuthState {
   // --> State
   // userData: IAuthData | null
-  userData: null
+  userId: string | null
+  userData: null | IAuthData
   isLoggedIn: boolean // TODO: To be replaced with userData logic, for now it's a boolean and mocked
   expirationDate: Date | null
   // --> Actions
@@ -15,8 +17,9 @@ const useAuthStore = create<AuthState>()(
   persist(
     (set) => ({
       // --> State
+      userId: null,
       userData: null,
-      isLoggedIn: true,
+      isLoggedIn: false,
       expirationDate: null,
       // --> Actions
       clearUserId: () => set({ userData: null })

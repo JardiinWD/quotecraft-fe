@@ -1,4 +1,4 @@
-import React, { type JSX } from 'react'
+import React, { JSX } from 'react'
 
 const Analytics: React.FC = (): JSX.Element => {
   return <div>Analytics</div>

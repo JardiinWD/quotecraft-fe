@@ -1,4 +1,4 @@
-import type { JSX } from 'react'
+import { JSX } from 'react'
 import { ErrorBoundary as ReactErrorBoundary } from 'react-error-boundary'
 
 // -------------- INTERFACES

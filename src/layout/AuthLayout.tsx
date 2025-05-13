@@ -1,7 +1,8 @@
-import React, { type JSX } from 'react'
+import React, { JSX } from 'react'
 import { Navigate, Outlet, useLocation } from 'react-router-dom'
-import { Helmet } from '@/components/atoms'
+import { Helmet, FlexContainer, Image } from '@/components/atoms'
 import { retrieveHelmetData } from '@/functions/metadata'
+import { Images } from '@/assets/images'
 
 const AuthLayout: React.FC = (): JSX.Element => {
   // -------------- HOOKS
@@ -13,12 +14,19 @@ const AuthLayout: React.FC = (): JSX.Element => {
     'auth'
   )
 
+  console.log('====================================')
+  console.log('AuthLayout -> helmet title', title)
+  console.log('AuthLayout -> helmet description', description)
+  console.log('AuthLayout -> helmet keywords', keywords)
+  console.log('AuthLayout -> helmet title', title, description, keywords, route)
+  console.log('====================================')
+
   // Check if the user has landed on the /dashboard route
   if (location.pathname === '/auth') return <Navigate to="/auth/login" />
 
   return (
     <div>
-      {/* METADATA  */}
+      {/* METADATA */}
       <Helmet
         title={title}
         description={description}
@@ -26,7 +34,44 @@ const AuthLayout: React.FC = (): JSX.Element => {
         route={route}
       />
       {/* OTHER AUTH COMPONENTS */}
-      <Outlet />
+      <FlexContainer
+        direction="row"
+        justify="center"
+        align="center"
+        wrap="nowrap"
+        className="w-screen h-screen"
+        flexContainerId={`${title}-auth-page`}
+        dataTestId={`${title}-auth-page`}
+        backgroundColor="gray.100"
+      >
+        {/* LOGIN ILLUSTRATION CONTAINER */}
+        <FlexContainer
+          direction="row"
+          justify="center"
+          align="center"
+          className="!hidden lg:w-[60%] lg:!flex h-full"
+          flexContainerId={`${title}-auth-illustration`}
+          dataTestId={`${title}-auth-illustration`}
+        >
+          <Image
+            src={Images.LoginIllustration}
+            alt="Authentication Illustration"
+            htmlWidth={550}
+            htmlHeight={550}
+          />
+        </FlexContainer>
+        <FlexContainer
+          direction="row"
+          justify="center"
+          align="center"
+          className="!hidden lg:w-[40%] lg:!flex h-full"
+          flexContainerId={`${title}-auth-form`}
+          dataTestId={`${title}-auth-form`}
+          backgroundColor="red.500"
+        >
+          <Outlet />
+        </FlexContainer>
+      </FlexContainer>
     </div>
   )
 }

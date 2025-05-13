@@ -1,6 +1,6 @@
 import { Input as ChakraInput, Field } from '@chakra-ui/react'
-import React, { type JSX } from 'react'
-import type { IInputProps } from '@/components/atoms/types'
+import React, { JSX } from 'react'
+import { IInputProps } from '@/components/atoms/types'
 
 /**
  * @description Custom Input component that wraps Chakra UI Field with additional functionality
@@ -39,7 +39,7 @@ const Input: React.FC<IInputProps> = ({
         /* LABEL */
         <Field.Label
           data-testid={`input-${dataTestId}-label`}
-          fontWeight={400}
+          fontWeight={500}
           fontSize="sm"
         >
           {label} {isRequired && <Field.RequiredIndicator />}

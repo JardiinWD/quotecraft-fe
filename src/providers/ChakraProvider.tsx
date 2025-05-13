@@ -1,6 +1,6 @@
 import { ChakraThemeSystem } from '@/assets/styles/chakra'
 import { ChakraProvider as ReactChakraProvider } from '@chakra-ui/react'
-import React, { type JSX } from 'react'
+import React, { JSX } from 'react'
 
 // -------------- INTERFACES
 interface IChakraProviderProps {

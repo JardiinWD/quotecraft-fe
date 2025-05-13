@@ -1,14 +1,18 @@
-// --> Authentication Molecules
+// --> Authentication Atoms
 import ProtectedRoute from "./auth/ProtectedRoute"
-import Helmet from "./Helmet"
-
-// --> Authentication Molecules
-import Typography from "./Typography"
-import Button from "./Button"
+// --> Common Atoms 
+import Helmet from "./common/Helmet"
+import Typography from "./common/Typography"
+import Button from "./common/Button"
+import FlexContainer from "./common/FlexContainer"
+import Image from "./common/Image"
+// --> Forms Atoms
 import Input from "./forms/Input"
 
 
 
 export {
-    ProtectedRoute, Helmet, Typography, Button, Input,
+    ProtectedRoute,
+    Helmet, Typography, Button, FlexContainer, Image,
+    Input,
 }

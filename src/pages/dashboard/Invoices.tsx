@@ -1,7 +1,5 @@
-import { Typography, Button, Input } from '@/components/atoms'
-import { LoginForm } from '@/components/molecules'
 import { Box } from '@chakra-ui/react'
-import React, { type JSX } from 'react'
+import React, { JSX } from 'react'
 
 const Invoices: React.FC = (): JSX.Element => {
   return (
@@ -11,20 +9,7 @@ const Invoices: React.FC = (): JSX.Element => {
       fontWeight="bold"
       lineHeight="shorter"
     >
-      {/* Typography */}
-      <Typography
-        tagAs="h1"
-        textColor="red.300"
-        fontFamily="inter"
-        textStyle="4xl"
-        textId="invoices"
-        weight="bold"
-        textLineHeight="shorter"
-        uppercase={false}
-        dataTestId="invoices"
-        text="Invoices"
-      />
-      <LoginForm formId="login-form" onSubmit={(e) => console.log(e)} />
+      Invoices Page
     </Box>
   )
 }

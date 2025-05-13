@@ -1,4 +1,4 @@
-import React, { type JSX } from 'react'
+import React, { JSX } from 'react'
 
 const Settings: React.FC = (): JSX.Element => {
   return <div>Settings Page</div>

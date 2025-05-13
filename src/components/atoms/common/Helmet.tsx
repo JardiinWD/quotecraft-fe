@@ -1,7 +1,7 @@
-import type { JSX } from 'react'
+import { JSX } from 'react'
 import React from 'react'
 import { Helmet as ReactHelmet } from 'react-helmet-async'
-import type { IHelmetProps } from '@/components/atoms/types'
+import { IHelmetProps } from '@/components/atoms/types'
 import { appConfig } from '@/config/metadata'
 
 /**

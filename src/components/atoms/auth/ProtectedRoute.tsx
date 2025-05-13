@@ -1,7 +1,8 @@
-import React, { type JSX } from 'react'
-import type { IProtectedRouteProps } from '@/components/atoms/types'
+import React, { JSX } from 'react'
+import { IProtectedRouteProps } from '@/components/atoms/types'
 import { useAuthStore } from '@/stores'
 import { Navigate } from 'react-router-dom'
+import { useCheckJWTExpiration } from '@/hooks'
 
 /**
  * @description ProtectedRoute is a component that wraps its children with a div element.
@@ -13,10 +14,15 @@ const ProtectedRoute: React.FC<IProtectedRouteProps> = ({
   children
 }): JSX.Element => {
   // -------------- ZUSTAND STORE
-  const isLoggedIn = useAuthStore((state) => state.isLoggedIn)
+  const userId = useAuthStore((state) => state.userId)
+  const token = useAuthStore((state) => state.userData?.accessToken)
+  const expirationDate = useAuthStore((state) => state.expirationDate)
+
+  // -------------- CHECK IF TOKEN IS EXPIRED
+  useCheckJWTExpiration(expirationDate)
 
   // -------------- REDIRECT TO LOGIN
-  if (!isLoggedIn) return <Navigate to="/auth/login" replace />
+  if (!userId || !token) return <Navigate to="/auth/login" replace />
 
   return children
 }

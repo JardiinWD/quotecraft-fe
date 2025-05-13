@@ -1,5 +1,5 @@
 // --> Quote Craft Atoms Types
-import type { JSX } from 'react'
+import { JSX } from 'react'
 
 // -------------
 // ------------- COMMON
@@ -68,7 +68,7 @@ export type TTypographyWeight =
 
 // --> Typography props
 export interface ITypographyProps {
-  tagAs: TTypographyTagName
+  tagAs?: TTypographyTagName
   fontFamily?: string
   textId?: string
   textColor?: string
@@ -83,6 +83,7 @@ export interface ITypographyProps {
   whiteSpace?: boolean
   htmlFor?: string
   dataTestId?: string
+  fontSize?: TCustomSize
 }
 
 // -------------
@@ -114,7 +115,7 @@ export interface IButtonProps {
   dataTestId?: string
   padding?: string
   className?: string
-  fontSize?: string
+  fontSize?: TCustomSize
   fontWeight?: string
   width?: string | number
 }
@@ -140,4 +141,73 @@ export interface IInputProps {
   type?: TFormInputType
   register?: ReturnType<any>
   className?: string
+}
+
+// -------------
+// ------------- FLEX CONTAINER
+// -------------
+
+// --> Possible Options for flex container Tag
+export type TFlexContainerTag =
+  | 'div'
+  | 'section'
+  | 'article'
+  | 'aside'
+  | 'nav'
+  | 'header'
+  | 'footer'
+// --> Possible flex directions options
+export type TFlexContainerDirections = 'row' | 'column'
+// --> Possible flex justify content options
+export type TFlexContainerJustify =
+  | 'center'
+  | 'flex-start'
+  | 'flex-end'
+  | 'space-between'
+  | 'space-around'
+  | 'space-evenly'
+// --> Possible flex align items options
+export type TFlexContainerAlign =
+  | 'center'
+  | 'flex-start'
+  | 'flex-end'
+  | 'baseline'
+  | 'stretch'
+// --> Possible flex wrap options
+export type TFlexContainerWrap = 'wrap' | 'nowrap' | 'wrap-reverse'
+
+export interface IFlexContainerProps {
+  children: React.ReactNode
+  direction?: TFlexContainerDirections
+  justify?: TFlexContainerJustify
+  align?: TFlexContainerAlign
+  wrap?: TFlexContainerWrap
+  gap?: number
+  className?: string
+  style?: React.CSSProperties
+  flexContainerId?: string
+  as?: TFlexContainerTag
+  dataTestId?: string
+  backgroundColor?: string
+  padding?: string | number
+  margin?: string | number
+}
+
+// -------------
+// ------------- IMAGE
+// -------------
+
+// --> Possible image fit options
+export type TImageFit = 'contain' | 'cover' | 'fill' | 'none' | 'scale-down'
+
+// --> Possible image options
+export interface IImageProps {
+  src: string
+  alt: string
+  className?: string
+  style?: React.CSSProperties
+  htmlWidth?: number
+  htmlHeight?: number
+  fit?: TImageFit
+  dataTestId?: string
 }
