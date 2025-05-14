@@ -32,7 +32,7 @@ const Button: React.FC<IButtonProps> = ({
   size = 'md',
   buttonText,
   variant = 'solid',
-  colorPalette = 'green',
+  colorPalette = 'teal',
   icon,
   disabled = false,
   loading = false,
@@ -44,7 +44,7 @@ const Button: React.FC<IButtonProps> = ({
   type = 'button',
   buttonId,
   dataTestId,
-  backgroundColor = 'green.500',
+  backgroundColor = 'teal.500',
   textColor = {
     light: 'black.50',
     dark: 'white.50'
@@ -77,7 +77,7 @@ const Button: React.FC<IButtonProps> = ({
       fontSize={fontSize}
       fontWeight={fontWeight}
       _hover={{
-        backgroundColor: `${colorPalette}.500`,
+        backgroundColor: `${colorPalette}.600`,
         color: `${colorPalette}.100`
       }}
       width={width}

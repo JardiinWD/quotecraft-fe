@@ -77,8 +77,8 @@ const Input: React.FC<IInputProps> = ({
         className={inputClassName}
         backgroundColor={'white'}
         outlineColor={{
-          base: 'green.500',
-          _dark: 'green.500'
+          base: 'teal.500',
+          _dark: 'teal.500'
         }}
         id={`${inputId}-input`}
         type={state.inputType}
@@ -89,11 +89,13 @@ const Input: React.FC<IInputProps> = ({
           <FaRegEye
             onClick={handleInputType}
             className="absolute right-2 top-9"
+            color={'#3f3f46'}
           />
         ) : (
           <FaRegEyeSlash
             onClick={handleInputType}
             className="absolute right-2 top-9"
+            color={'#3f3f46'}
           />
         ))}
       {/* HELPER TEXT */}
@@ -112,9 +114,9 @@ const Input: React.FC<IInputProps> = ({
         <Field.ErrorText
           data-testid={`input-${dataTestId}-error-text`}
           fontWeight={400}
-          fontSize="2xs"
-          fontStyle={'italic'}
-          color="green.500"
+          fontSize="xs"
+          fontStyle="italic"
+          color="red.500"
         >
           {errorText}
         </Field.ErrorText>

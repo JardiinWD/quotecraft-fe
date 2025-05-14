@@ -8,6 +8,8 @@ import {
 } from '@/components/molecules/forms/schema'
 import { ILoginFormProps } from '@/components/molecules/types'
 import { Button, FlexContainer, Input, Typography } from '@/components/atoms'
+import { FaGoogle } from 'react-icons/fa'
+import { Link } from 'react-router-dom'
 
 /**
  * @description LoginForm component
@@ -34,7 +36,7 @@ const LoginForm: React.FC<ILoginFormProps> = ({
       as="form"
       data-testid={`login-form`}
       id={'login-form'}
-      width={['45%', '45%', '45%', '60%']}
+      width={['75%', '75%', '75%', '55%']}
       height={'fit-content'}
       onSubmit={handleSubmit(onSubmit)}
       backgroundColor={{ _light: 'gray.100', _dark: 'gray.700' }}
@@ -86,18 +88,18 @@ const LoginForm: React.FC<ILoginFormProps> = ({
         disabled={false}
         rounded="lg"
         onClick={() => console.log('Signin with Google')}
-        formId="login-form"
-        type="submit"
+        type="button"
         buttonId="signin-with-google-button"
         dataTestId="signin-with-google-button"
         padding="0.5rem 1rem"
         fontWeight="bold"
-        width={'auto'}
+        width="auto"
         backgroundColor="gray.200"
         textColor={{
           light: 'black.50',
           dark: 'gray.800'
         }}
+        icon={<FaGoogle size={48} />}
       />
       {/* SEPARATOR */}
       <HStack>
@@ -166,8 +168,8 @@ const LoginForm: React.FC<ILoginFormProps> = ({
       {authenticationError && (
         <Typography
           textColor={{
-            light: 'green.500',
-            dark: 'green.500'
+            light: 'red.500',
+            dark: 'red.500'
           }}
           textId="login-form-error"
           weight="medium"
@@ -178,6 +180,34 @@ const LoginForm: React.FC<ILoginFormProps> = ({
           text={authenticationError}
         />
       )}
+      <HStack>
+        <Typography
+          textId="login-form-no-account"
+          weight="medium"
+          tagAs="span"
+          textLineHeight="shorter"
+          uppercase={false}
+          className="text-left"
+          text={translations?.['login-form-no-account'] as string}
+          textStyle="sm"
+        />
+        <Link to="/auth/register">
+          <Typography
+            textColor={{
+              light: 'teal.500',
+              dark: 'teal.500'
+            }}
+            weight="medium"
+            textId="login-form-register-redirect"
+            tagAs="span"
+            textLineHeight="shorter"
+            uppercase={false}
+            className="text-left"
+            text={translations?.['login-form-register-redirect'] as string}
+            textStyle="sm"
+          />
+        </Link>
+      </HStack>
     </Box>
   )
 }

@@ -14,7 +14,7 @@ const RegisterFormEmptyState: React.FC<IRegisterFormEmptyStateProps> = ({
 }): JSX.Element => {
   return (
     <EmptyState
-      icon={<FaInfoCircle size={48} color="#22c55e" />}
+      icon={<FaInfoCircle size={48} color="#14b8a6" />}
       dataTestId="register-empty"
       emptyStateId="register-empty"
       title={translations?.['register-empty-state-title'] as string}

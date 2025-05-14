@@ -1,6 +1,7 @@
 import { EmptyState as ChakraEmptyState, VStack } from '@chakra-ui/react'
 import { JSX } from 'react'
 import { IGenericEmptyStateProps } from '@/components/molecules/types'
+import { Typography } from '@/components/atoms'
 
 /**
  * @description - EmptyState component created using Chakra UI for displaying an empty state in the application.
@@ -64,22 +65,30 @@ const EmptyState: React.FC<IGenericEmptyStateProps> = ({
         ) : null}
         <VStack gap={styleProperties.gap} textAlign="center">
           {title ? (
-            <ChakraEmptyState.Title
-              data-testid={`${dataTestId}-state-title`}
-              id={`${emptyStateId}-state-title`}
-              as="h3"
-              fontSize="2xl"
-            >
-              {title}
-            </ChakraEmptyState.Title>
+            <Typography
+              textId={`${emptyStateId}-state-title`}
+              dataTestId={`${dataTestId}-state-title`}
+              weight="bold"
+              tagAs="h3"
+              textLineHeight="shorter"
+              uppercase={false}
+              className="text-center"
+              text={title}
+              textStyle="2xl"
+            />
           ) : null}
           {description ? (
-            <ChakraEmptyState.Description
-              data-testid={`${dataTestId}-state-description`}
-              id={`${emptyStateId}-state-description`}
-            >
-              {description}
-            </ChakraEmptyState.Description>
+            <Typography
+              textId={`${emptyStateId}-state-description`}
+              dataTestId={`${dataTestId}-state-description`}
+              weight="regular"
+              tagAs="p"
+              textLineHeight="shorter"
+              uppercase={false}
+              className="text-center"
+              text={description}
+              textStyle="sm"
+            />
           ) : null}
           {goBackButton ? goBackButton : null}
         </VStack>
