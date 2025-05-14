@@ -106,7 +106,7 @@ export interface IButtonProps {
 // ------------- INPUT
 // -------------
 
-type TFormInputType = 'text' | 'email' | 'password'
+export type TFormInputType = 'text' | 'email' | 'password'
 
 export interface IInputProps {
   variant?: 'subtle' | 'outline' | 'flushed'

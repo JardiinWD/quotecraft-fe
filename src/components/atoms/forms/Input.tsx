@@ -1,6 +1,11 @@
 import { Input as ChakraInput, Field } from '@chakra-ui/react'
-import React, { JSX } from 'react'
-import { IInputProps } from '@/components/atoms/types'
+import React, { JSX, useState } from 'react'
+import { IInputProps, TFormInputType } from '@/components/atoms/types'
+import { FaRegEye, FaRegEyeSlash } from 'react-icons/fa'
+
+interface IState {
+  inputType: TFormInputType
+}
 
 /**
  * @description Custom Input component that wraps Chakra UI Field with additional functionality
@@ -33,8 +38,21 @@ const Input: React.FC<IInputProps> = ({
   type = 'text',
   register
 }): JSX.Element => {
+  // ------------- STATE
+  const [state, setState] = useState<IState>({
+    inputType: type
+  })
+
+  // ------------- HANDLERS
+  const handleInputType = () => {
+    setState((prevState) => ({
+      ...prevState,
+      inputType: prevState.inputType === 'password' ? 'text' : 'password'
+    }))
+  }
+
   return (
-    <Field.Root invalid>
+    <Field.Root className="relative" invalid>
       {label && (
         /* LABEL */
         <Field.Label
@@ -63,9 +81,21 @@ const Input: React.FC<IInputProps> = ({
           _dark: 'green.500'
         }}
         id={`${inputId}-input`}
-        type={type}
+        type={state.inputType}
         {...register}
       />
+      {type === 'password' &&
+        (state.inputType === 'password' ? (
+          <FaRegEye
+            onClick={handleInputType}
+            className="absolute right-2 top-9"
+          />
+        ) : (
+          <FaRegEyeSlash
+            onClick={handleInputType}
+            className="absolute right-2 top-9"
+          />
+        ))}
       {/* HELPER TEXT */}
       {helperText && !errorText && (
         <Field.HelperText
