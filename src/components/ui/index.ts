@@ -1,4 +1,9 @@
 // --> Color Mode
-import { LightMode, DarkMode, ColorModeButton, ColorModeProvider } from "./color-mode";
+import {
+  LightMode,
+  DarkMode,
+  ColorModeButton,
+  ColorModeProvider
+} from './color-mode'
 
-export { LightMode, DarkMode, ColorModeButton, ColorModeProvider };
+export { LightMode, DarkMode, ColorModeButton, ColorModeProvider }

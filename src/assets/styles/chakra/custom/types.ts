@@ -8,16 +8,16 @@ export type TChakraFonts = {
 // ------------- CHAKRA BORDER RADIUS
 export type TChakraBorderRadius = {
   [key in
-  | 'none'
-  | 'sm'
-  | 'base'
-  | 'md'
-  | 'lg'
-  | 'xl'
-  | '2xl'
-  | '3xl'
-  | '4xl'
-  | 'full']: {
+    | 'none'
+    | 'sm'
+    | 'base'
+    | 'md'
+    | 'lg'
+    | 'xl'
+    | '2xl'
+    | '3xl'
+    | '4xl'
+    | 'full']: {
     value: string | number
   }
 }
@@ -25,17 +25,17 @@ export type TChakraBorderRadius = {
 // ------------- CHAKRA FONT SIZES
 export type TChakraFontSizes = {
   [key in
-  | '2xs'
-  | 'xs'
-  | 'sm'
-  | 'md'
-  | 'lg'
-  | 'xl'
-  | '2xl'
-  | '3xl'
-  | '4xl'
-  | '5xl'
-  | '6xl']: {
+    | '2xs'
+    | 'xs'
+    | 'sm'
+    | 'md'
+    | 'lg'
+    | 'xl'
+    | '2xl'
+    | '3xl'
+    | '4xl'
+    | '5xl'
+    | '6xl']: {
     value: string | number
   }
 }
@@ -43,15 +43,15 @@ export type TChakraFontSizes = {
 // ------------- CHAKRA FONT WEIGHTS
 export type TChakraFontWeights = {
   [key in
-  | 'hairline'
-  | 'thin'
-  | 'light'
-  | 'normal'
-  | 'medium'
-  | 'semibold'
-  | 'bold'
-  | 'extrabold'
-  | 'black']: {
+    | 'hairline'
+    | 'thin'
+    | 'light'
+    | 'normal'
+    | 'medium'
+    | 'semibold'
+    | 'bold'
+    | 'extrabold'
+    | 'black']: {
     value: number
   }
 }
@@ -59,20 +59,19 @@ export type TChakraFontWeights = {
 // ------------- CHAKRA LINE HEIGHTS
 export type TChakraLineHeights = {
   [key in
-  | 'normal'
-  | 'none'
-  | 'shorter'
-  | 'short'
-  | 'base'
-  | 'tall'
-  | 'taller']: {
+    | 'normal'
+    | 'none'
+    | 'shorter'
+    | 'short'
+    | 'base'
+    | 'tall'
+    | 'taller']: {
     value: string | number
   }
 }
 
 // ------------- CHAKRA CUSTOM COLORS
 type SingleColorToken = { value: string }
-
 
 export type TChakraCustomColors = {
   // For basic colors

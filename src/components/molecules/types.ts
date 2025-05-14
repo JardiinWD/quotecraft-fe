@@ -1,14 +1,20 @@
 // --> Quote Craft Molecules Types
 import { type TLoginFormValues } from '@/components/molecules/forms/schema'
+import {
+  IGenericStyleProperties,
+  TGenericTranslations
+} from '@/components/types'
 
-// -------------
-// ------------- GENERIC TYPES
-// -------------
+// ------------- GENERIC EMPTY STATE
 
-export type TGenericTranslations = {
-  translations?: {
-    [key: string]: string
-  }
+export interface IGenericEmptyStateProps {
+  title?: string
+  description?: string
+  icon?: React.ReactNode
+  goBackButton?: React.ReactNode
+  styleProperties?: IGenericStyleProperties
+  dataTestId?: string
+  emptyStateId?: string
 }
 
 // -------------
@@ -20,3 +26,9 @@ export interface ILoginFormProps extends TGenericTranslations {
   authenticationError?: string
   onSubmit: (data: TLoginFormValues) => void
 }
+
+// -------------
+// ------------- REGISTER FORM EMPTY STATE
+// -------------
+
+export interface IRegisterFormEmptyStateProps extends TGenericTranslations {}

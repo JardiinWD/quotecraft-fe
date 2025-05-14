@@ -56,13 +56,19 @@ const Auth: RouteObject = {
       path: 'register',
       caseSensitive: true,
       element: <Register />,
-      errorElement: <div>Auth Error Page</div>
+      loader: async () => {
+        // Load the translations for the login page
+        const { translations } = await loadApiTranslations(
+          import.meta.env.VITE_APPWRITE_DATABASE_ID,
+          import.meta.env.VITE_APPWRITE_REGISTER_COLLECTION_ID
+        )
+        return translations
+      }
     },
     {
       path: 'forgot-password',
       caseSensitive: true,
-      element: <ForgotPassword />,
-      errorElement: <div>Auth Error Page</div>
+      element: <ForgotPassword />
     }
   ],
   errorElement: <div>Auth Error Page</div>

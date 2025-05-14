@@ -7,15 +7,15 @@ import { IFlexContainerProps } from '@/components/atoms/types'
  * It allows for customizable layout properties such as direction, justification,
  * alignment, wrapping, and gap between child elements.
  * @param {React.ReactNode} children - The content to be displayed within the Flex container.
- * @param {TFlexContainerDirections} direction - The direction in which the child elements are laid out.
- * @param {TFlexContainerJustify} justify - The justification of the child elements along the main axis.
- * @param {TFlexContainerAlign} align - The alignment of the child elements along the cross axis.
- * @param {TFlexContainerWrap} wrap - The wrapping behavior of the child elements.
+ * @param {TGenericContainerDirections} direction - The direction in which the child elements are laid out.
+ * @param {TGenericContainerJustify} justify - The justification of the child elements along the main axis.
+ * @param {TGenericContainerAlign} align - The alignment of the child elements along the cross axis.
+ * @param {TGenericContainerWrap} wrap - The wrapping behavior of the child elements.
  * @param {number} gap - The gap between child elements, specified in pixels.
  *  @param {string} className - Additional CSS classes to apply to the Flex container.
  * @param {React.CSSProperties} style - Additional inline styles to apply to the Flex container.
  * @param {string} flexContainerId - The ID to be assigned to the Flex container.
- * @param {TFlexContainerTag} as - The HTML tag to be used for the Flex container.
+ * @param {TGenericContainerTag} as - The HTML tag to be used for the Flex container.
  * @param {string} dataTestId - The data-testid attribute for testing purposes.
  * @returns {JSX.Element} The rendered Flex container component.
  */

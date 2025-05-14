@@ -1,41 +1,17 @@
 // --> Quote Craft Atoms Types
 import { JSX } from 'react'
-
-// -------------
-// ------------- COMMON
-// -------------
-
-// --> Possible Rounding types
-
-type TCustomRounded =
-  | 'none'
-  | 'sm'
-  | 'base'
-  | 'md'
-  | 'lg'
-  | 'xl'
-  | '2xl'
-  | '3xl'
-  | '4xl'
-  | 'full'
-
-type TCustomColorPalette =
-  | 'gray'
-  | 'black'
-  | 'red'
-  | 'cyan'
-  | 'blue'
-  | 'teal'
-  | 'green'
-  | 'orange'
-
-export type TCustomSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl'
-
-export type TDarkmodeColorReady = {
-  light: string
-  dark: string
-}
-
+import {
+  TCustomColorPalette,
+  TCustomRounded,
+  TCustomSize,
+  TDarkmodeColorReady,
+  TGenericContainerDirections,
+  TGenericContainerJustify,
+  TGenericContainerAlign,
+  TGenericContainerWrap,
+  TGenericContainerTag,
+  IGenericStyleProperties
+} from '@/components/types'
 
 // -------------
 // ------------- HELMET
@@ -123,7 +99,7 @@ export interface IButtonProps {
   className?: string
   fontSize?: TCustomSize
   fontWeight?: string
-  width?: string | number
+  width?: IGenericStyleProperties['width']
 }
 
 // -------------
@@ -153,46 +129,17 @@ export interface IInputProps {
 // ------------- FLEX CONTAINER
 // -------------
 
-// --> Possible Options for flex container Tag
-export type TFlexContainerTag =
-  | 'div'
-  | 'section'
-  | 'article'
-  | 'aside'
-  | 'nav'
-  | 'header'
-  | 'footer'
-// --> Possible flex directions options
-export type TFlexContainerDirections = 'row' | 'column'
-// --> Possible flex justify content options
-export type TFlexContainerJustify =
-  | 'center'
-  | 'flex-start'
-  | 'flex-end'
-  | 'space-between'
-  | 'space-around'
-  | 'space-evenly'
-// --> Possible flex align items options
-export type TFlexContainerAlign =
-  | 'center'
-  | 'flex-start'
-  | 'flex-end'
-  | 'baseline'
-  | 'stretch'
-// --> Possible flex wrap options
-export type TFlexContainerWrap = 'wrap' | 'nowrap' | 'wrap-reverse'
-
 export interface IFlexContainerProps {
   children: React.ReactNode
-  direction?: TFlexContainerDirections
-  justify?: TFlexContainerJustify
-  align?: TFlexContainerAlign
-  wrap?: TFlexContainerWrap
+  direction?: TGenericContainerDirections
+  justify?: TGenericContainerJustify
+  align?: TGenericContainerAlign
+  wrap?: TGenericContainerWrap
   gap?: number
   className?: string
   style?: React.CSSProperties
   flexContainerId?: string
-  as?: TFlexContainerTag
+  as?: TGenericContainerTag
   dataTestId?: string
   backgroundColor?: TDarkmodeColorReady
   padding?: string | number
