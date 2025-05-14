@@ -32,7 +32,7 @@ const Button: React.FC<IButtonProps> = ({
   size = 'md',
   buttonText,
   variant = 'solid',
-  colorPalette = 'red',
+  colorPalette = 'green',
   icon,
   disabled = false,
   loading = false,
@@ -44,7 +44,7 @@ const Button: React.FC<IButtonProps> = ({
   type = 'button',
   buttonId,
   dataTestId,
-  backgroundColor = 'red.500',
+  backgroundColor = 'green.500',
   textColor = {
     light: 'black.50',
     dark: 'white.50'

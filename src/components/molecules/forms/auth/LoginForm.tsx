@@ -166,8 +166,8 @@ const LoginForm: React.FC<ILoginFormProps> = ({
       {authenticationError && (
         <Typography
           textColor={{
-            light: 'red.500',
-            dark: 'red.500'
+            light: 'green.500',
+            dark: 'green.500'
           }}
           textId="login-form-error"
           weight="medium"

@@ -66,8 +66,8 @@ const AuthLayout: React.FC = (): JSX.Element => {
           flexContainerId={`${title}-auth-form`}
           dataTestId={`${title}-auth-form`}
           backgroundColor={{
-            light: 'red.500',
-            dark: 'red.500'
+            light: 'green.500',
+            dark: 'green.500'
           }}
         >
           <ColorModeButton />

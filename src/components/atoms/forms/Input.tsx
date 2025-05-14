@@ -58,6 +58,10 @@ const Input: React.FC<IInputProps> = ({
         data-testid={dataTestId}
         className={inputClassName}
         backgroundColor={'white'}
+        outlineColor={{
+          base: 'green.500',
+          _dark: 'green.500'
+        }}
         id={`${inputId}-input`}
         type={type}
         {...register}
@@ -80,7 +84,7 @@ const Input: React.FC<IInputProps> = ({
           fontWeight={400}
           fontSize="2xs"
           fontStyle={'italic'}
-          color="red.500"
+          color="green.500"
         >
           {errorText}
         </Field.ErrorText>
