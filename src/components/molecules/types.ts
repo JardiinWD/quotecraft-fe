@@ -2,14 +2,21 @@
 import { type TLoginFormValues } from '@/components/molecules/forms/schema'
 
 // -------------
-// ------------- LOGIN FORM
+// ------------- GENERIC TYPES
 // -------------
 
-export interface ILoginFormProps {
-  formId?: string
-  authenticationError?: string
-  onSubmit: (data: TLoginFormValues) => void
+export type TGenericTranslations = {
   translations?: {
     [key: string]: string
   }
+}
+
+// -------------
+// ------------- LOGIN FORM
+// -------------
+
+export interface ILoginFormProps extends TGenericTranslations {
+  formId?: string
+  authenticationError?: string
+  onSubmit: (data: TLoginFormValues) => void
 }

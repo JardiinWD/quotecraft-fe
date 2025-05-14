@@ -31,7 +31,10 @@ const FlexContainer: React.FC<IFlexContainerProps> = ({
   flexContainerId = `flex`,
   as = 'div',
   dataTestId,
-  backgroundColor,
+  backgroundColor = {
+    light: 'gray.100',
+    dark: 'gray.700'
+  },
   padding = 0,
   margin = 0
 }): JSX.Element => {
@@ -47,7 +50,10 @@ const FlexContainer: React.FC<IFlexContainerProps> = ({
       align={align}
       wrap={wrap}
       gap={`${gap}`}
-      backgroundColor={backgroundColor}
+      backgroundColor={{
+        base: backgroundColor?.light,
+        _dark: backgroundColor?.dark
+      }}
       padding={padding}
       margin={margin}
     >

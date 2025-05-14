@@ -29,17 +29,15 @@ const LoginForm: React.FC<ILoginFormProps> = ({
     resolver: zodResolver(loginSchema)
   })
 
-  console.log('Translations Received in LoginForm', translations)
-
   return (
     <Box
       as="form"
       data-testid={`login-form`}
       id={'login-form'}
-      width={['45%', '45%', '45%', '65%']}
+      width={['45%', '45%', '45%', '60%']}
       height={'fit-content'}
       onSubmit={handleSubmit(onSubmit)}
-      backgroundColor={'gray.100'}
+      backgroundColor={{ _light: 'gray.100', _dark: 'gray.700' }}
       rounded={'xl'}
       padding={5}
       display={'flex'}
@@ -58,7 +56,6 @@ const LoginForm: React.FC<ILoginFormProps> = ({
         align="flex-start"
       >
         <Typography
-          textColor="black.50"
           textId="signin-form-heading"
           dataTestId="signin-form-heading"
           weight="bold"
@@ -70,7 +67,6 @@ const LoginForm: React.FC<ILoginFormProps> = ({
           textStyle="2xl"
         />
         <Typography
-          textColor="black.50"
           textId="signin-form-text"
           dataTestId="signin-form-text"
           weight="regular"
@@ -78,14 +74,14 @@ const LoginForm: React.FC<ILoginFormProps> = ({
           textLineHeight="shorter"
           uppercase={false}
           className="text-left"
-          text="Login to your account to access your dashboard and manage your invoices."
+          text={translations?.['signin-form-text'] as string}
           textStyle="sm"
         />
       </FlexContainer>
       {/* SIGNIN WITH GOOGLE */}
       <Button
         size="md"
-        buttonText="Sign in with Google"
+        buttonText={translations?.['signin-with-google-button'] as string}
         variant="solid"
         disabled={false}
         rounded="lg"
@@ -98,13 +94,15 @@ const LoginForm: React.FC<ILoginFormProps> = ({
         fontWeight="bold"
         width={'auto'}
         backgroundColor="gray.200"
-        textColor="black.50"
+        textColor={{
+          light: 'black.50',
+          dark: 'gray.800'
+        }}
       />
       {/* SEPARATOR */}
       <HStack>
         <Separator height={0.5} backgroundColor="gray.200" size="sm" flex="1" />
         <Typography
-          textColor="black.50"
           weight="medium"
           tagAs="span"
           textLineHeight="shorter"
@@ -119,7 +117,11 @@ const LoginForm: React.FC<ILoginFormProps> = ({
       <Input
         isRequired
         label="Username"
-        errorText={errors.username?.message}
+        errorText={
+          errors.username?.message &&
+          ((translations?.['input-user-name-error-text'] as string) ??
+            errors.username?.message)
+        }
         onChange={(e) => console.log(e.target.value)}
         placeholder="Username"
         dataTestId="user-name"
@@ -130,7 +132,11 @@ const LoginForm: React.FC<ILoginFormProps> = ({
       <Input
         isRequired
         label="Password"
-        errorText={errors.password?.message}
+        errorText={
+          errors.password?.message &&
+          ((translations?.['input-user-password-error-text'] as string) ??
+            errors.password?.message)
+        }
         onChange={(e) => console.log(e.target.value)}
         placeholder="Password"
         dataTestId="user-password"
@@ -141,7 +147,7 @@ const LoginForm: React.FC<ILoginFormProps> = ({
       {/* LOGIN BUTTON */}
       <Button
         size="md"
-        buttonText="Login"
+        buttonText={translations?.['login-button'] as string}
         variant="solid"
         disabled={false}
         loading={isSubmitting}
@@ -159,7 +165,10 @@ const LoginForm: React.FC<ILoginFormProps> = ({
       {/* Typography */}
       {authenticationError && (
         <Typography
-          textColor="red.500"
+          textColor={{
+            light: 'red.500',
+            dark: 'red.500'
+          }}
           textId="login-form-error"
           weight="medium"
           className="text-center"

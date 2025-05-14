@@ -31,6 +31,12 @@ type TCustomColorPalette =
 
 export type TCustomSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl'
 
+export type TDarkmodeColorReady = {
+  light: string
+  dark: string
+}
+
+
 // -------------
 // ------------- HELMET
 // -------------
@@ -71,7 +77,7 @@ export interface ITypographyProps {
   tagAs?: TTypographyTagName
   fontFamily?: string
   textId?: string
-  textColor?: string
+  textColor?: TDarkmodeColorReady
   textLineHeight?: string
   textStyle?: string
   weight: TTypographyWeight
@@ -99,7 +105,7 @@ export interface IButtonProps {
   variant: TButtonVariant
   colorPalette?: TCustomColorPalette
   backgroundColor?: string
-  textColor?: string
+  textColor?: TDarkmodeColorReady
   buttonText?: string
   icon?: JSX.Element
   disabled?: boolean
@@ -188,7 +194,7 @@ export interface IFlexContainerProps {
   flexContainerId?: string
   as?: TFlexContainerTag
   dataTestId?: string
-  backgroundColor?: string
+  backgroundColor?: TDarkmodeColorReady
   padding?: string | number
   margin?: string | number
 }

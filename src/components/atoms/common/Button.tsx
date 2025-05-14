@@ -44,8 +44,11 @@ const Button: React.FC<IButtonProps> = ({
   type = 'button',
   buttonId,
   dataTestId,
-  backgroundColor = 'black',
-  textColor = 'gray.100',
+  backgroundColor = 'red.500',
+  textColor = {
+    light: 'black.50',
+    dark: 'white.50'
+  },
   padding = '0.5rem 1rem',
   className = '',
   fontSize = 'sm',
@@ -56,7 +59,7 @@ const Button: React.FC<IButtonProps> = ({
     <ChakraButton
       backgroundColor={backgroundColor}
       padding={padding}
-      color={textColor}
+      color={{ base: textColor?.light, _dark: textColor?.dark }}
       type={type}
       id={buttonId}
       rounded={rounded}

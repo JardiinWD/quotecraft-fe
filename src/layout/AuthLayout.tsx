@@ -3,6 +3,7 @@ import { Navigate, Outlet, useLocation } from 'react-router-dom'
 import { Helmet, FlexContainer, Image } from '@/components/atoms'
 import { retrieveHelmetData } from '@/functions/metadata'
 import { Images } from '@/assets/images'
+import { ColorModeButton } from '@/components/ui'
 
 const AuthLayout: React.FC = (): JSX.Element => {
   // -------------- HOOKS
@@ -35,7 +36,6 @@ const AuthLayout: React.FC = (): JSX.Element => {
         className="w-screen h-screen"
         flexContainerId={`${title}-auth-page`}
         dataTestId={`${title}-auth-page`}
-        backgroundColor="gray.100"
       >
         {/* AUTH LAYOUT ILLUSTRATION CONTAINER */}
         <FlexContainer
@@ -45,6 +45,10 @@ const AuthLayout: React.FC = (): JSX.Element => {
           className="!hidden lg:w-[50%] lg:!flex h-full"
           flexContainerId={`${title}-auth-illustration`}
           dataTestId={`${title}-auth-illustration`}
+          backgroundColor={{
+            light: 'gray.100',
+            dark: 'gray.700'
+          }}
         >
           <Image
             src={Images.LoginIllustration}
@@ -58,11 +62,15 @@ const AuthLayout: React.FC = (): JSX.Element => {
           direction="row"
           justify="center"
           align="center"
-          className="w-[100%] lg:w-[50%] lg:!flex h-full"
+          className="w-[100%] lg:w-[50%] lg:!flex h-full relative"
           flexContainerId={`${title}-auth-form`}
           dataTestId={`${title}-auth-form`}
-          backgroundColor="red.500"
+          backgroundColor={{
+            light: 'red.500',
+            dark: 'red.500'
+          }}
         >
+          <ColorModeButton />
           <Outlet />
         </FlexContainer>
       </FlexContainer>

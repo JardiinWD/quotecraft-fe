@@ -1,12 +1,11 @@
-import { LoginForm } from '@/components/molecules'
-import React, { JSX, useState } from 'react'
-import { useAuthStore } from '@/stores'
-import { useNavigate } from 'react-router-dom'
-import { jwtDecode } from 'jwt-decode'
-import { transformJwtExpirationDate } from '@/functions/common'
-import { AppWriteApi, MockAuthApi } from '@/api'
+import { MockAuthApi } from '@/api'
 import { IAuthData } from '@/api/types'
-import { useQuery } from '@tanstack/react-query'
+import { LoginForm } from '@/components/molecules'
+import { transformJwtExpirationDate } from '@/functions/common'
+import { useAuthStore } from '@/stores'
+import { jwtDecode } from 'jwt-decode'
+import React, { JSX, useState } from 'react'
+import { useLoaderData, useNavigate } from 'react-router-dom'
 
 // -------------- INTERFACES
 interface IState {
@@ -22,31 +21,8 @@ const Login: React.FC = (): JSX.Element => {
   // -------------- HOOKS
   const navigate = useNavigate()
 
-  // -------------- API CALLS
-  const { data: apiData } = useQuery({
-    queryKey: ['products'],
-    staleTime: 5000,
-    queryFn: async () => {
-      // Get the Data from the API
-      const { data, error, status } =
-        await AppWriteApi.getCollectionFromAppwriteDB(
-          import.meta.env.VITE_APPWRITE_DATABASE_ID,
-          import.meta.env.VITE_APPWRITE_LOGIN_COLLECTION_ID
-        )
-
-      // Check if the response is valid
-      if (error || status !== 'success') throw new Error(`${error as string}`)
-
-      // Retrieve the Locale
-      const { locale } = await AppWriteApi.getNavigatorLocale()
-      // Return the necessary data
-      return {
-        translations: data,
-        lang: locale.language,
-        countryCode: locale.countryCode
-      }
-    }
-  })
+  // -------------- LOADER DATA
+  const translations = useLoaderData()
 
   // -------------- HANDLERS
 
@@ -91,7 +67,7 @@ const Login: React.FC = (): JSX.Element => {
 
   return (
     <LoginForm
-      translations={apiData?.translations as Record<string, string>}
+      translations={translations as Record<string, string>}
       authenticationError={state.authenticationError as string}
       onSubmit={handleLogin}
     />

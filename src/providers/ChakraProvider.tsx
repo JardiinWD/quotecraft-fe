@@ -1,6 +1,7 @@
 import { ChakraThemeSystem } from '@/assets/styles/chakra'
 import { ChakraProvider as ReactChakraProvider } from '@chakra-ui/react'
 import React, { JSX } from 'react'
+import { ColorModeProvider } from '@/components/ui'
 
 // -------------- INTERFACES
 interface IChakraProviderProps {
@@ -17,7 +18,7 @@ export const ChakraProvider: React.FC<IChakraProviderProps> = ({
 }) => {
   return (
     <ReactChakraProvider value={ChakraThemeSystem}>
-      {children}
+      <ColorModeProvider>{children}</ColorModeProvider>
     </ReactChakraProvider>
   )
 }

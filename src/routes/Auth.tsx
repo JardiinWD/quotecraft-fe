@@ -3,6 +3,36 @@ import { type RouteObject } from 'react-router-dom'
 import { Login, Register, ForgotPassword } from '@/pages'
 // --> Layouts
 import { AuthLayout } from '@/layout'
+// --> API Layers
+import { AppWriteApi } from '@/api'
+
+// --> Handlers
+
+/** Retrieves translations for a given page and method.
+ * @param {TCollections} page - The name of the page to retrieve the translations for.
+ * @param {TPocketMethod} method - The method to use to retrieve the translations.
+ * @returns {Promise<{translations: TGroupedItems}>} A promise that resolves to an object containing the translations.
+ * @example - const {translations} = await loadTranslations('homepage', 'SDK');
+ */
+const loadApiTranslations = async (
+  databaseId: string,
+  collectionId: string
+) => {
+  // Get the Data from the API
+  const { data } = await AppWriteApi.getCollectionFromAppwriteDB(
+    databaseId, // DATABASE _ID
+    collectionId // COLLECTION _ID
+  )
+  // Retrieve the Locale
+  const { locale } = await AppWriteApi.getNavigatorLocale()
+
+  // Return the Data
+  return {
+    translations: data,
+    lang: locale.language,
+    countryCode: locale.countryCode
+  }
+}
 
 const Auth: RouteObject = {
   path: '/auth',
@@ -12,7 +42,15 @@ const Auth: RouteObject = {
       path: 'login',
       caseSensitive: true,
       element: <Login />,
-      errorElement: <div>Auth Error Page</div>
+      errorElement: <div>Auth Error Page</div>,
+      loader: async () => {
+        // Load the translations for the login page
+        const { translations } = await loadApiTranslations(
+          import.meta.env.VITE_APPWRITE_DATABASE_ID,
+          import.meta.env.VITE_APPWRITE_LOGIN_COLLECTION_ID
+        )
+        return translations
+      }
     },
     {
       path: 'register',

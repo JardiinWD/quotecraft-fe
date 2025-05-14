@@ -20,7 +20,10 @@ import { ITypographyProps } from '@/components/atoms/types'
  */
 const Typography: React.FC<ITypographyProps> = ({
   tagAs = 'p',
-  textColor = 'black.50',
+  textColor = {
+    light: 'black.50',
+    dark: 'white.50'
+  },
   fontFamily = 'inter',
   textId = '',
   weight = 'regular',
@@ -36,7 +39,7 @@ const Typography: React.FC<ITypographyProps> = ({
 }): JSX.Element => {
   return htmlString ? (
     <Text
-      color={textColor}
+      color={{ base: textColor?.light, _dark: textColor?.dark }}
       textStyle={textStyle}
       fontSize={fontSize}
       fontFamily={fontFamily}
@@ -51,7 +54,7 @@ const Typography: React.FC<ITypographyProps> = ({
     />
   ) : (
     <Text
-      color={textColor}
+      color={{ base: textColor?.light, _dark: textColor?.dark }}
       textStyle={textStyle}
       fontFamily={fontFamily}
       as={tagAs}
