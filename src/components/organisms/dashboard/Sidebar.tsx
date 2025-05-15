@@ -77,8 +77,12 @@ const Sidebar: React.FC = () => {
         h="100vh"
         w="200px"
         backgroundColor={{ base: 'gray.100', _dark: 'gray.600' }}
-        borderRight="1px"
-        borderRightColor={{ base: 'gray.100', _dark: 'gray.600' }}
+        /* borderRight="1px"
+        borderRightColor={{ base: 'gray.100', _dark: 'gray.600' }} */
+        boxShadow={{
+          base: '0 0 10px rgba(0, 0, 0, 0.1)',
+          _dark: ''
+        }}
         transition="0.3s ease"
         zIndex="1000"
         className="relative"

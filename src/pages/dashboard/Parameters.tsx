@@ -1,7 +1,7 @@
 import React, { JSX } from 'react'
 
 const Parameters: React.FC = (): JSX.Element => {
-  return <div></div>
+  return <div>Parameters</div>
 }
 
 export default Parameters

@@ -10,7 +10,6 @@ import NavItem from './sidebar/NavItem'
 import BaseDialogs from './dialogs/BaseDialogs'
 import LogoutDialog from './dialogs/LogoutDialog'
 
-
 export {
   LoginForm,
   EmptyState,

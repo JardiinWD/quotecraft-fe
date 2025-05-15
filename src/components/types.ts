@@ -81,6 +81,9 @@ export type TGenericDisplay =
   | 'inline-flex'
   | 'inline-grid'
 
+// --> Generic Overflow options
+export type TGenericOverflow = 'auto' | 'hidden' | 'scroll'
+
 // --> Generic Empty State Props
 export interface IGenericStyleProperties {
   width?: string[] | string | number | number[]
@@ -103,4 +106,6 @@ export interface IGenericStyleProperties {
   gap?: number
   padding?: number
   margin?: number
+  overflowY?: TGenericOverflow
+  overflowX?: TGenericOverflow
 }

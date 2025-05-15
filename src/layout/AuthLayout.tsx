@@ -70,7 +70,7 @@ const AuthLayout: React.FC = (): JSX.Element => {
             dark: 'teal.500'
           }}
         >
-          <ColorModeButton />
+          <ColorModeButton className="absolute top-2 right-2 z-10" />
           <Outlet />
         </FlexContainer>
       </FlexContainer>

@@ -1,6 +1,8 @@
+/* TODO: Update with a useEffect the dependency for the title, let it listen  */
+
 import { JSX } from 'react'
 import React from 'react'
-import { Helmet as ReactHelmet } from 'react-helmet-async'
+import { Helmet as ReactHelmet } from 'react-helmet'
 import { IHelmetProps } from '@/components/atoms/types'
 import { appConfig } from '@/config/metadata'
 

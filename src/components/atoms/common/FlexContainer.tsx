@@ -42,14 +42,18 @@ const FlexContainer: React.FC<IFlexContainerProps> = ({
     padding: 0,
     margin: 0,
     gap: 2,
-    height: 'fit-content',
-    width: 'fit-content'
+    height: '',
+    width: '',
+    overflowY: 'hidden',
+    overflowX: 'hidden'
   }
 }): JSX.Element => {
   return (
     <Flex
       data-testid={dataTestId}
       as={as}
+      overflowX={additionalStyleProperties.overflowX}
+      overflowY={additionalStyleProperties.overflowY}
       id={`${flexContainerId}-container`}
       className={className}
       style={style}
@@ -64,6 +68,8 @@ const FlexContainer: React.FC<IFlexContainerProps> = ({
       }}
       padding={additionalStyleProperties.padding}
       margin={additionalStyleProperties.margin}
+      width={additionalStyleProperties.width}
+      height={additionalStyleProperties.height}
     >
       {children}
     </Flex>

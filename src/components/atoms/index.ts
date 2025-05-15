@@ -9,6 +9,8 @@ import Image from './common/Image'
 import LanguageSetter from './common/LanguageSetter'
 // --> Forms Atoms
 import Input from './forms/Input'
+// --> User Atoms
+import UserPill from './user/UserPill'
 
 export {
   ProtectedRoute,
@@ -18,5 +20,6 @@ export {
   FlexContainer,
   LanguageSetter,
   Image,
-  Input
+  Input,
+  UserPill
 }

@@ -3,7 +3,6 @@ import { createRoot } from 'react-dom/client'
 import 'tailwindcss/tailwind.css'
 // --> Providers
 import {
-  HelmetProvider,
   ReactRouterProvider,
   ErrorBoundaryProvider,
   ChakraProvider,
@@ -18,10 +17,8 @@ createRoot(document.getElementById('root')!).render(
     <ErrorBoundaryProvider>
       <QueryProvider>
         <ChakraProvider>
-          <HelmetProvider>
-            <ReactRouterProvider />
-            <LanguageSetter />
-          </HelmetProvider>
+          <ReactRouterProvider />
+          <LanguageSetter />
         </ChakraProvider>
       </QueryProvider>
     </ErrorBoundaryProvider>

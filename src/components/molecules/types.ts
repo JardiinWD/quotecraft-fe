@@ -33,14 +33,14 @@ export interface ILoginFormProps extends TGenericTranslations {
 // ------------- REGISTER FORM EMPTY STATE
 // -------------
 
-export interface IRegisterFormEmptyStateProps extends TGenericTranslations { }
+export interface IRegisterFormEmptyStateProps extends TGenericTranslations {}
 
 // -------------
 // ------------- FORGOT PASSWORD FORM EMPTY STATE
 // -------------
 
 export interface IForgotPasswordFormEmptyStateProps
-  extends TGenericTranslations { }
+  extends TGenericTranslations {}
 
 // -------------
 // ------------- SIDEBAR COMPONENTS
@@ -54,15 +54,14 @@ export interface NavItemProps {
   isActive?: boolean
 }
 
-
 // -------------
 // ------------- DIALOGS
 // -------------
 
-
 // ------------- BASE DIALOGS
 
-type TDialogMotionPreset = | 'slide-in-bottom'
+type TDialogMotionPreset =
+  | 'slide-in-bottom'
   | 'slide-in-top'
   | 'scale'
   | 'slide-in-left'
@@ -91,4 +90,4 @@ export interface IBaseDialogsProps {
 }
 
 // ------------- LOGOUT DIALOG
-export interface ILogoutDialogProps extends IBaseDialogsProps { }
+export interface ILogoutDialogProps extends IBaseDialogsProps {}
