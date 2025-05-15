@@ -47,7 +47,7 @@ const AuthLayout: React.FC = (): JSX.Element => {
           dataTestId={`${title}-auth-illustration`}
           backgroundColor={{
             light: 'gray.100',
-            dark: 'gray.700'
+            dark: 'gray.600'
           }}
         >
           <Image

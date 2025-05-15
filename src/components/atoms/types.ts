@@ -123,6 +123,7 @@ export interface IInputProps {
   type?: TFormInputType
   register?: ReturnType<any>
   className?: string
+  additionalStyleProperties?: IGenericStyleProperties
 }
 
 // -------------

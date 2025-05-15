@@ -86,8 +86,11 @@ export interface IGenericStyleProperties {
   width?: string[] | string | number | number[]
   height?: string | string[] | number
   textColor?: TDarkmodeColorReady
+  outlineColor?: TDarkmodeColorReady
   backgroundColor?: TDarkmodeColorReady
   borderColor?: TDarkmodeColorReady
+  borderWidth?: number
+  focusBorderColor?: TDarkmodeColorReady
   borderRadius?: TCustomRounded
   fontSize?: TCustomSize
   direction?: TGenericContainerDirections

@@ -8,6 +8,8 @@ import ForgotPasswordFormEmptyState from './state/ForgotPasswordFormEmptyState'
 import NavItem from './sidebar/NavItem'
 // --> Dialogs
 import BaseDialogs from './dialogs/BaseDialogs'
+import LogoutDialog from './dialogs/LogoutDialog'
+
 
 export {
   LoginForm,
@@ -15,5 +17,6 @@ export {
   RegisterFormEmptyState,
   ForgotPasswordFormEmptyState,
   NavItem,
-  BaseDialogs
+  BaseDialogs,
+  LogoutDialog
 }

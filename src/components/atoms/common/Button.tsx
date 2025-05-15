@@ -25,6 +25,7 @@ import { IButtonProps } from '@/components/atoms/types'
  * @param {string} className - Additional class names for the button.
  * @param {string} fontSize - The font size of the button text. Default is 'sm'.
  * @param {string} fontWeight - The font weight of the button text. Default is 'normal'.
+ * @param {string} width - The width of the button. Default is 'full'.
  *
  * @returns {JSX.Element} The rendered button component.
  */
@@ -45,12 +46,12 @@ const Button: React.FC<IButtonProps> = ({
   buttonId,
   dataTestId,
   backgroundColor = {
-    light: 'teal.500',
+    light: 'gray.200',
     dark: 'teal.500'
   },
   textColor = {
     light: 'black.50',
-    dark: 'white.50'
+    dark: 'gray.800'
   },
   padding = '0.5rem 1rem',
   className = '',

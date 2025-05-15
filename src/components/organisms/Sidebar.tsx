@@ -1,15 +1,15 @@
 import { Images } from '@/assets/images'
-import { Button, FlexContainer, Image, Typography } from '@/components/atoms'
-import { BaseDialogs, NavItem } from '@/components/molecules'
+import { Button, FlexContainer, Image } from '@/components/atoms'
+import { LogoutDialog, NavItem } from '@/components/molecules'
+import { useAuthStore } from '@/stores'
 import { Box, VStack } from '@chakra-ui/react'
 import React, { useState } from 'react'
+import { CiLogout } from 'react-icons/ci'
 import { FaUsers } from 'react-icons/fa'
 import { FiHome, FiSettings } from 'react-icons/fi'
 import { IoAnalytics } from 'react-icons/io5'
 import { SiTableau } from 'react-icons/si'
 import { useLocation, useNavigate } from 'react-router-dom'
-import { CiLogout } from 'react-icons/ci'
-import { useAuthStore } from '@/stores'
 
 // ------------ INTERFACES
 interface ISidebarState {
@@ -76,9 +76,9 @@ const Sidebar: React.FC = () => {
         left="0"
         h="100vh"
         w="200px"
-        backgroundColor={{ base: 'gray.100', _dark: 'black.50' }}
+        backgroundColor={{ base: 'gray.100', _dark: 'gray.600' }}
         borderRight="1px"
-        borderRightColor={{ base: 'gray.100', _dark: 'gray.700' }}
+        borderRightColor={{ base: 'gray.100', _dark: 'gray.600' }}
         transition="0.3s ease"
         zIndex="1000"
         className="relative"
@@ -127,9 +127,9 @@ const Sidebar: React.FC = () => {
           h="fit-content"
           w="100%"
           padding={4}
-          backgroundColor={{ base: 'gray.100', _dark: 'black.50' }}
+          backgroundColor={{ base: 'gray.100', _dark: 'gray.600' }}
           borderRight="1px"
-          borderRightColor={{ base: 'gray.100', _dark: 'gray.700' }}
+          borderRightColor={{ base: 'gray.100', _dark: 'gray.600' }}
           transition="0.3s ease"
           zIndex="1000"
           className="relative"
@@ -154,31 +154,10 @@ const Sidebar: React.FC = () => {
       </Box>
       {/* BASE DIALOGS */}
       {state.isModalOpen && (
-        <BaseDialogs
+        <LogoutDialog
           isModalOpen={state.isModalOpen}
-          title="Sei sicuro di voler uscire?"
-          content={
-            <Typography
-              textId={`logout-dialog-content`}
-              dataTestId={`logout-dialog-content`}
-              weight="regular"
-              tagAs="p"
-              textLineHeight="shorter"
-              uppercase={false}
-              className="text-left"
-              text="Tutti i contenuti modificati e non salvati verranno persi. L'azione é irreversibile."
-              textStyle="sm"
-            />
-          }
-          dismissButtonText="Annulla"
-          confirmButtonText="Conferma"
-          hasConfirmButton={true}
-          hasDismissButton={true}
           onDismissButtonClick={handleModalClose}
           onConfirmButtonClick={handleConfirmButtonClick}
-          dialogId="logout-dialog"
-          hasModalBackdrop={true}
-          hasCloseButton={true}
         />
       )}
     </React.Fragment>

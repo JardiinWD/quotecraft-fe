@@ -39,7 +39,7 @@ const LoginForm: React.FC<ILoginFormProps> = ({
       width={['75%', '75%', '75%', '55%']}
       height={'fit-content'}
       onSubmit={handleSubmit(onSubmit)}
-      backgroundColor={{ _light: 'gray.100', _dark: 'gray.700' }}
+      backgroundColor={{ _light: 'gray.100', _dark: 'gray.600' }}
       rounded={'xl'}
       padding={5}
       display={'flex'}
@@ -94,7 +94,10 @@ const LoginForm: React.FC<ILoginFormProps> = ({
         padding="0.5rem 1rem"
         fontWeight="bold"
         width="auto"
-        backgroundColor="gray.200"
+        backgroundColor={{
+          light: 'gray.200',
+          dark: 'teal.500'
+        }}
         textColor={{
           light: 'black.50',
           dark: 'gray.800'
@@ -162,6 +165,14 @@ const LoginForm: React.FC<ILoginFormProps> = ({
         dataTestId="login-button"
         padding="0.5rem 1rem"
         fontWeight="bold"
+        backgroundColor={{
+          light: 'gray.200',
+          dark: 'teal.500'
+        }}
+        textColor={{
+          light: 'black.50',
+          dark: 'gray.800'
+        }}
         width={'auto'}
       />
       {/* Typography */}

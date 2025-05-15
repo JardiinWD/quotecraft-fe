@@ -1,34 +1,28 @@
-import { Dialog } from '@chakra-ui/react'
-import React, { JSX, useState } from 'react'
 import { Button, Typography } from '@/components/atoms'
+import { Dialog } from '@chakra-ui/react'
+import React, { JSX } from 'react'
+import { IBaseDialogsProps } from '@/components/molecules/types'
 
-// ------------ INTERFACES
-
-interface IBaseDialogsProps {
-  placement?: 'top' | 'bottom' | 'center'
-  motionPreset?:
-    | 'slide-in-bottom'
-    | 'slide-in-top'
-    | 'scale'
-    | 'slide-in-left'
-    | 'slide-in-right'
-    | 'none'
-  size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl'
-  title?: string
-  hasModalBackdrop?: boolean
-  isModalOpen?: boolean
-  dialogId?: string
-  /* BUTTONS */
-  hasCloseButton?: boolean
-  hasDismissButton?: boolean
-  hasConfirmButton?: boolean
-  confirmButtonText?: string
-  dismissButtonText?: string
-  onConfirmButtonClick?: () => void
-  onDismissButtonClick?: () => void
-  content?: JSX.Element | string
-}
-
+/**
+ * @description A reusable base dialog component that provides a customizable modal dialog interface.
+ * This component supports various configurations such as title, content, buttons, and animations.
+ * @param {string} placement- The placement of the dialog on the screen.
+ * @param {string} title - The title displayed in the dialog header.
+ * @param {boolean} hasModalBackdrop - Whether the dialog has a modal backdrop.
+ * @param {boolean} hasCloseButton - Whether the dialog includes a close button.
+ * @param {React.ReactNode} content - The content displayed in the dialog body.
+ * @param {string} dialogId - The unique identifier for the dialog.
+ * @param {string} motionPreset - The animation preset for the dialog.
+ * @param {boolean} hasDismissButton - Whether the dialog includes a dismiss button.
+ * @param {boolean} isModalOpen - Whether the dialog is open or closed.
+ * @param {boolean} hasConfirmButton - Whether the dialog includes a confirm button.
+ * @param {string} confirmButtonText - The text displayed on the confirm button.
+ * @param {string} dismissButtonText - The text displayed on the dismiss button.
+ * @param {() => void} onConfirmButtonClick - Callback function invoked when the confirm button is clicked.
+ * @param {() => void} onDismissButtonClick - Callback function invoked when the dismiss button is clicked.
+ * @param {string} size - The size of the dialog.
+ * @returns {JSX.Element} The rendered dialog component.
+ */
 const BaseDialogs: React.FC<IBaseDialogsProps> = ({
   placement = 'center',
   title = 'Dialog Title',

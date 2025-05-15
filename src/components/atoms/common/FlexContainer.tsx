@@ -36,7 +36,7 @@ const FlexContainer: React.FC<IFlexContainerProps> = ({
   dataTestId,
   backgroundColor = {
     light: 'gray.100',
-    dark: 'gray.700'
+    dark: 'gray.600'
   },
   additionalStyleProperties = {
     padding: 0,

@@ -36,7 +36,30 @@ const Input: React.FC<IInputProps> = ({
   inputClassName = '',
   inputId = 'input-field',
   type = 'text',
-  register
+  register,
+  additionalStyleProperties = {
+    outlineColor: {
+      base: 'teal.500',
+      _dark: 'teal.500'
+    },
+    textColor: {
+      base: 'gray.600',
+      _dark: 'gray.100'
+    },
+    backgroundColor: {
+      base: 'gray.100',
+      _dark: 'gray.500'
+    },
+    borderColor: {
+      base: 'gray.400',
+      _dark: 'gray.600'
+    },
+    focusBorderColor: {
+      base: 'teal.500',
+      _dark: 'teal.500'
+    },
+    borderWidth: 1.2
+  }
 }): JSX.Element => {
   // ------------- STATE
   const [state, setState] = useState<IState>({
@@ -75,10 +98,14 @@ const Input: React.FC<IInputProps> = ({
         placeholder={placeholder}
         data-testid={dataTestId}
         className={inputClassName}
-        backgroundColor={'white'}
-        outlineColor={{
-          base: 'teal.500',
-          _dark: 'teal.500'
+        outlineColor={additionalStyleProperties.outlineColor}
+        color={additionalStyleProperties.textColor}
+        backgroundColor={additionalStyleProperties.backgroundColor}
+        borderColor={additionalStyleProperties.borderColor}
+        borderWidth={additionalStyleProperties.borderWidth}
+        focusBorderColor={additionalStyleProperties.focusBorderColor}
+        _placeholder={{
+          color: 'gray.400'
         }}
         id={`${inputId}-input`}
         type={state.inputType}

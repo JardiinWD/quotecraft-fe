@@ -22,7 +22,7 @@ const EmptyState: React.FC<IGenericEmptyStateProps> = ({
   styleProperties = {
     width: ['45%', '45%', '45%', '60%'],
     height: 'fit-content',
-    backgroundColor: { light: 'gray.100', dark: 'gray.700' },
+    backgroundColor: { light: 'gray.100', dark: 'gray.600' },
     borderRadius: 'md',
     display: 'flex',
     direction: 'column',
