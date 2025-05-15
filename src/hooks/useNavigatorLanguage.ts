@@ -11,9 +11,7 @@ const useNavigatorLanguage = () => {
       ['it', 'en'].includes(navigator.language.split('-')[0])
         ? navigator.language.split('-')[0]
         : 'en'
-    console.log('====================================')
-    console.log('navigatorLocale', navigatorLocale)
-    console.log('====================================')
+
     // Define and GET the Country Code
     const countryCode =
       navigator &&

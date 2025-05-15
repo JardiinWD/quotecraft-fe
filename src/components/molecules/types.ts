@@ -39,3 +39,12 @@ export interface IRegisterFormEmptyStateProps extends TGenericTranslations {}
 
 export interface IForgotPasswordFormEmptyStateProps
   extends TGenericTranslations {}
+
+// ------------- SIDEBAR COMPONENTS
+export interface NavItemProps {
+  icon: React.ElementType
+  navLinkText: string
+  navLinkContext?: string
+  to: string
+  isActive?: boolean
+}

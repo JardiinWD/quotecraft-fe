@@ -17,21 +17,17 @@ const RegisterFormEmptyState: React.FC<IRegisterFormEmptyStateProps> = ({
       icon={<FaInfoCircle size={48} color="#14b8a6" />}
       dataTestId="register-empty"
       emptyStateId="register-empty"
-      title={translations?.['register-empty-state-title'] as string}
-      description={translations?.['register-empty-state-description'] as string}
+      title={translations?.['register-empty-state-title']}
+      description={translations?.['register-empty-state-description']}
       goBackButton={
         <Link to="/auth/login">
           <Button
             size="md"
-            buttonText={
-              translations?.['goback-register-empty-button'] as string
-            }
+            buttonText={translations?.['goback-register-empty-button']}
             variant="solid"
             disabled={false}
             spinnerPlacement="start"
             rounded="lg"
-            onClick={() => console.log('Go Back')}
-            formId="register-form"
             type="button"
             buttonId="goback-register-empty-button"
             dataTestId="goback-register-empty-button"

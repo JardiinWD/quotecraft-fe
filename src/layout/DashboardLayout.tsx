@@ -2,6 +2,7 @@ import React, { JSX } from 'react'
 import { Navigate, Outlet, useLocation } from 'react-router-dom'
 import { Helmet } from '@/components/atoms'
 import { retrieveHelmetData } from '@/functions/metadata'
+import { Sidebar } from '@/components/organisms'
 
 const DashboardLayout: React.FC = (): JSX.Element => {
   // -------------- HOOKS
@@ -26,6 +27,7 @@ const DashboardLayout: React.FC = (): JSX.Element => {
         keywords={keywords}
         route={route}
       />
+      <Sidebar />
       {/* OTHER DASHBOARD COMPONENTS */}
       <Outlet />
     </div>

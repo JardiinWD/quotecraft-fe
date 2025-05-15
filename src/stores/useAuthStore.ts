@@ -10,7 +10,7 @@ interface AuthState {
   isLoggedIn: boolean // TODO: To be replaced with userData logic, for now it's a boolean and mocked
   expirationDate: Date | null
   // --> Actions
-  clearUserId: () => void
+  clearUserData: () => void
 }
 
 const useAuthStore = create<AuthState>()(
@@ -22,7 +22,7 @@ const useAuthStore = create<AuthState>()(
       isLoggedIn: false,
       expirationDate: null,
       // --> Actions
-      clearUserId: () => set({ userData: null })
+      clearUserData: () => set({ userData: null })
     }),
     {
       name: 'Quote Craft - Authentication Store'

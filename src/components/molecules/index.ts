@@ -1,13 +1,19 @@
 // --> Forms
 import LoginForm from './forms/auth/LoginForm'
-import RegisterFormEmptyState from './forms/state/RegisterFormEmptyState'
-import ForgotPasswordFormEmptyState from './forms/state/ForgotPasswordFormEmptyState'
 // --> States
 import EmptyState from './state/EmptyState'
+import RegisterFormEmptyState from './state/RegisterFormEmptyState'
+import ForgotPasswordFormEmptyState from './state/ForgotPasswordFormEmptyState'
+// --> Sidebar
+import NavItem from './sidebar/NavItem'
+// --> Dialogs
+import BaseDialogs from './dialogs/BaseDialogs'
 
 export {
   LoginForm,
   EmptyState,
   RegisterFormEmptyState,
-  ForgotPasswordFormEmptyState
+  ForgotPasswordFormEmptyState,
+  NavItem,
+  BaseDialogs
 }

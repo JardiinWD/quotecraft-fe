@@ -1,3 +1,4 @@
+import { useAuthStore } from '@/stores'
 import { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 /**
@@ -8,12 +9,12 @@ const useCheckJWTExpiration = (expirationDate: Date | null): void => {
   // -------------- HOOKS
   const navigate = useNavigate()
   // -------------- ZUSTAND STORE
-  // const { clearUserId } = useAuthStore()
+  const { clearUserData } = useAuthStore()
 
   useEffect(() => {
     // If no expiration date is provided, clear auth state and redirect to login
     if (!expirationDate) {
-      // clearUserId() // Clear auth data
+      clearUserData() // Clear auth data
       navigate('/auth/login', { replace: true })
       return
     }
@@ -27,7 +28,7 @@ const useCheckJWTExpiration = (expirationDate: Date | null): void => {
     // If the token is expired, clear auth data and redirect to login
     if (expiration.getTime() <= Date.now()) {
       console.warn('Token has expired. Redirecting to login...')
-      // clearUserId() // Clear auth data
+      clearUserData() // Clear auth data
       navigate('/auth/login', { replace: true })
     }
 
@@ -38,14 +39,14 @@ const useCheckJWTExpiration = (expirationDate: Date | null): void => {
     if (timeUntilExpiry > 0) {
       const logoutTimer = setTimeout(() => {
         console.warn('Token has expired. Logging out...')
-        // clearUserId()
+        clearUserData()
         navigate('/auth/login', { replace: true })
       }, timeUntilExpiry)
 
       // Clean up the timer on unmount
       return () => clearTimeout(logoutTimer)
     }
-  }, [expirationDate, navigate /* clearUserId */])
+  }, [expirationDate, navigate, clearUserData])
 }
 
 export default useCheckJWTExpiration

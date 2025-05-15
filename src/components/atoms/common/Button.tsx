@@ -44,7 +44,10 @@ const Button: React.FC<IButtonProps> = ({
   type = 'button',
   buttonId,
   dataTestId,
-  backgroundColor = 'teal.500',
+  backgroundColor = {
+    light: 'teal.500',
+    dark: 'teal.500'
+  },
   textColor = {
     light: 'black.50',
     dark: 'white.50'
@@ -57,7 +60,10 @@ const Button: React.FC<IButtonProps> = ({
 }): JSX.Element => {
   return (
     <ChakraButton
-      backgroundColor={backgroundColor}
+      backgroundColor={{
+        base: backgroundColor?.light,
+        _dark: backgroundColor?.dark
+      }}
       padding={padding}
       color={{ base: textColor?.light, _dark: textColor?.dark }}
       type={type}

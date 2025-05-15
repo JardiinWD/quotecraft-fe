@@ -80,7 +80,7 @@ export interface IButtonProps {
   size: TCustomSize
   variant: TButtonVariant
   colorPalette?: TCustomColorPalette
-  backgroundColor?: string
+  backgroundColor?: TDarkmodeColorReady
   textColor?: TDarkmodeColorReady
   buttonText?: string
   icon?: JSX.Element
@@ -144,6 +144,7 @@ export interface IFlexContainerProps {
   backgroundColor?: TDarkmodeColorReady
   padding?: string | number
   margin?: string | number
+  additionalStyleProperties?: IGenericStyleProperties
 }
 
 // -------------

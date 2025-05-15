@@ -17,6 +17,10 @@ import { IFlexContainerProps } from '@/components/atoms/types'
  * @param {string} flexContainerId - The ID to be assigned to the Flex container.
  * @param {TGenericContainerTag} as - The HTML tag to be used for the Flex container.
  * @param {string} dataTestId - The data-testid attribute for testing purposes.
+ * @param {TDarkmodeColorReady} backgroundColor - The background color for the Flex container.
+ * @param {string | number} padding - The padding to be applied to the Flex container.
+ * @param {string | number} margin - The margin to be applied to the Flex container.
+ * @param {IGenericStyleProperties} additionalStyleProperties - Additional style properties to be applied.
  * @returns {JSX.Element} The rendered Flex container component.
  */
 const FlexContainer: React.FC<IFlexContainerProps> = ({
@@ -25,7 +29,6 @@ const FlexContainer: React.FC<IFlexContainerProps> = ({
   justify = 'center',
   align = 'center',
   wrap = 'nowrap',
-  gap = 2,
   className = '',
   style = {},
   flexContainerId = `flex`,
@@ -35,8 +38,13 @@ const FlexContainer: React.FC<IFlexContainerProps> = ({
     light: 'gray.100',
     dark: 'gray.700'
   },
-  padding = 0,
-  margin = 0
+  additionalStyleProperties = {
+    padding: 0,
+    margin: 0,
+    gap: 2,
+    height: 'fit-content',
+    width: 'fit-content'
+  }
 }): JSX.Element => {
   return (
     <Flex
@@ -49,13 +57,13 @@ const FlexContainer: React.FC<IFlexContainerProps> = ({
       justify={justify}
       align={align}
       wrap={wrap}
-      gap={`${gap}`}
+      gap={additionalStyleProperties.gap}
       backgroundColor={{
         base: backgroundColor?.light,
         _dark: backgroundColor?.dark
       }}
-      padding={padding}
-      margin={margin}
+      padding={additionalStyleProperties.padding}
+      margin={additionalStyleProperties.margin}
     >
       {children}
     </Flex>

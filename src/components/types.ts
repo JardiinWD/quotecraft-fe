@@ -99,4 +99,5 @@ export interface IGenericStyleProperties {
   boxShadow?: TCustomSize
   gap?: number
   padding?: number
+  margin?: number
 }

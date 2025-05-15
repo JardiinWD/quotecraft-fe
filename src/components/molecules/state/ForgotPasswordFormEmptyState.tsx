@@ -17,23 +17,17 @@ const ForgotPasswordFormEmptyState: React.FC<
       icon={<FaInfoCircle size={48} color="#14b8a6" />}
       dataTestId="forgot-password-empty"
       emptyStateId="forgot-password-empty"
-      title={translations?.['forgot-password-empty-state-title'] as string}
-      description={
-        translations?.['forgot-password-empty-state-description'] as string
-      }
+      title={translations?.['forgot-password-empty-state-title']}
+      description={translations?.['forgot-password-empty-state-description']}
       goBackButton={
         <Link to="/auth/login">
           <Button
             size="md"
-            buttonText={
-              translations?.['goback-forgot-password-empty-button'] as string
-            }
+            buttonText={translations?.['goback-forgot-password-empty-button']}
             variant="solid"
             disabled={false}
             spinnerPlacement="start"
             rounded="lg"
-            onClick={() => console.log('Go Back')}
-            formId="register-form"
             type="button"
             buttonId="goback-forgot-password-empty-button"
             dataTestId="goback-forgot-password-empty-button"
