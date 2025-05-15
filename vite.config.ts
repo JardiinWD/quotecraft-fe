@@ -23,6 +23,7 @@ export default defineConfig({
     /* APPWRITE COLLECTIONS */
     VITE_APPWRITE_LOGIN_COLLECTION_ID: `"${process.env.VITE_APPWRITE_LOGIN_COLLECTION_ID}"`,
     VITE_APPWRITE_REGISTER_COLLECTION_ID: `"${process.env.VITE_APPWRITE_REGISTER_COLLECTION_ID}"`,
+    VITE_APPWRITE_FORGOT_PASSWORD_COLLECTION_ID: `"${process.env.VITE_APPWRITE_FORGOT_PASSWORD_COLLECTION_ID}"`,
   },
   plugins: [react(), tsconfigPaths(), svgr(), ViteMinifyPlugin()],
   server: {

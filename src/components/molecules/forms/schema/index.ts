@@ -6,8 +6,8 @@ import { z } from 'zod'
 
 // --> Login Schema Definition
 export const loginSchema = z.object({
-  username: z.string().min(6, 'Username is required!'),
-  password: z.string().min(8, 'Password is required!')
+  username: z.string().min(4),
+  password: z.string().min(8)
 })
 
 // --> Login Form Values Type

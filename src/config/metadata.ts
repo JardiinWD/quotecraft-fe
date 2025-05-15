@@ -90,7 +90,7 @@ export const appConfig: TAppConfig = {
       keywords: ['register', 'signup', 'create account'],
       route: '/auth/register'
     },
-    forgotPassword: {
+    ['forgot-password']: {
       title: 'Forgot Password',
       description: 'Reset your password',
       keywords: ['forgot password', 'reset password', 'authentication'],

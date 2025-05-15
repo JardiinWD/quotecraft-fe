@@ -32,3 +32,10 @@ export interface ILoginFormProps extends TGenericTranslations {
 // -------------
 
 export interface IRegisterFormEmptyStateProps extends TGenericTranslations {}
+
+// -------------
+// ------------- FORGOT PASSWORD FORM EMPTY STATE
+// -------------
+
+export interface IForgotPasswordFormEmptyStateProps
+  extends TGenericTranslations {}

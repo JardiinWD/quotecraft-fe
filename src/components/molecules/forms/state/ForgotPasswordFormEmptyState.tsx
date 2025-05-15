@@ -2,29 +2,31 @@ import React, { JSX } from 'react'
 import { EmptyState } from '@/components/molecules'
 import { FaInfoCircle } from 'react-icons/fa'
 import { Button } from '@/components/atoms'
-import { IRegisterFormEmptyStateProps } from '@/components/molecules/types'
+import { IForgotPasswordFormEmptyStateProps } from '@/components/molecules/types'
 import { Link } from 'react-router-dom'
 
 /**
- * @description RegisterFormEmptyState component
+ * @description ForgotPasswordFormEmptyState component
  * @param {TGenericTranslations} translations - Optional translations object
  */
-const RegisterFormEmptyState: React.FC<IRegisterFormEmptyStateProps> = ({
-  translations
-}): JSX.Element => {
+const ForgotPasswordFormEmptyState: React.FC<
+  IForgotPasswordFormEmptyStateProps
+> = ({ translations }): JSX.Element => {
   return (
     <EmptyState
       icon={<FaInfoCircle size={48} color="#14b8a6" />}
-      dataTestId="register-empty"
-      emptyStateId="register-empty"
-      title={translations?.['register-empty-state-title'] as string}
-      description={translations?.['register-empty-state-description'] as string}
+      dataTestId="forgot-password-empty"
+      emptyStateId="forgot-password-empty"
+      title={translations?.['forgot-password-empty-state-title'] as string}
+      description={
+        translations?.['forgot-password-empty-state-description'] as string
+      }
       goBackButton={
         <Link to="/auth/login">
           <Button
             size="md"
             buttonText={
-              translations?.['goback-register-empty-button'] as string
+              translations?.['goback-forgot-password-empty-button'] as string
             }
             variant="solid"
             disabled={false}
@@ -33,8 +35,8 @@ const RegisterFormEmptyState: React.FC<IRegisterFormEmptyStateProps> = ({
             onClick={() => console.log('Go Back')}
             formId="register-form"
             type="button"
-            buttonId="goback-register-empty-button"
-            dataTestId="goback-register-empty-button"
+            buttonId="goback-forgot-password-empty-button"
+            dataTestId="goback-forgot-password-empty-button"
             padding="0.5rem 1rem"
             fontWeight="bold"
             width={['auto', 'auto', 'auto', '12.5rem']}
@@ -45,4 +47,4 @@ const RegisterFormEmptyState: React.FC<IRegisterFormEmptyStateProps> = ({
   )
 }
 
-export default RegisterFormEmptyState
+export default ForgotPasswordFormEmptyState
