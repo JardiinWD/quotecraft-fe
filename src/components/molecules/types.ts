@@ -12,6 +12,7 @@ import { JSX } from 'react'
 export interface IGenericEmptyStateProps {
   title?: string
   description?: string
+  devMessage?: string
   icon?: React.ReactNode
   goBackButton?: React.ReactNode
   styleProperties?: IGenericStyleProperties
@@ -41,6 +42,17 @@ export interface IRegisterFormEmptyStateProps extends TGenericTranslations {}
 
 export interface IForgotPasswordFormEmptyStateProps
   extends TGenericTranslations {}
+
+// -------------
+// ------------- NOT FOUND STATE
+// -------------
+
+export interface INotFoundStateProps extends TGenericTranslations {
+  message?: string
+  errorTitle?: string
+  statusText?: string
+  devMessage?: string
+}
 
 // -------------
 // ------------- SIDEBAR COMPONENTS

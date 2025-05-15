@@ -1,8 +1,8 @@
-import React, { JSX } from 'react'
-import { EmptyState } from '@/components/molecules'
-import { FaInfoCircle } from 'react-icons/fa'
 import { Button } from '@/components/atoms'
+import { EmptyState } from '@/components/molecules'
 import { IRegisterFormEmptyStateProps } from '@/components/molecules/types'
+import React, { JSX } from 'react'
+import { FaInfoCircle } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 
 /**

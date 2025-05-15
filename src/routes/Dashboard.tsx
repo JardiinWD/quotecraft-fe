@@ -5,6 +5,7 @@ import { Analytics, Customers, Invoices, Parameters, Settings } from '@/pages'
 import { DashboardLayout } from '@/layout'
 // --> Components
 import { ProtectedRoute } from '@/components/atoms'
+import { NotFoundState } from '@/components/molecules'
 
 const Dashboard: RouteObject = {
   path: '/dashboard',
@@ -17,32 +18,32 @@ const Dashboard: RouteObject = {
     {
       path: 'invoices',
       caseSensitive: true,
-      element: <Invoices />,
-      errorElement: <div>Dashboard Error</div>
+      element: <Invoices />
     },
     {
       path: 'analytics',
       caseSensitive: true,
-      element: <Analytics />,
-      errorElement: <div>Dashboard Error</div>
+      element: <Analytics />
     },
     {
       path: 'parameters',
       caseSensitive: true,
-      element: <Parameters />,
-      errorElement: <div>Dashboard Error</div>
+      element: <Parameters />
     },
     {
       path: 'customers',
       caseSensitive: true,
-      element: <Customers />,
-      errorElement: <div>Dashboard Error</div>
+      element: <Customers />
     },
     {
       path: 'settings',
       caseSensitive: true,
-      element: <Settings />,
-      errorElement: <div>Dashboard Error</div>
+      element: <Settings />
+    },
+    {
+      path: '*',
+      caseSensitive: true,
+      element: <NotFoundState />
     }
   ]
 }

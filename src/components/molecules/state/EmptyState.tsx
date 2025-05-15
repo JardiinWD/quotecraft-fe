@@ -22,7 +22,7 @@ const EmptyState: React.FC<IGenericEmptyStateProps> = ({
   styleProperties = {
     width: ['45%', '45%', '45%', '60%'],
     height: 'fit-content',
-    backgroundColor: { light: 'gray.100', dark: 'gray.600' },
+    backgroundColor: { light: 'gray.100', dark: 'gray.500' },
     borderRadius: 'md',
     display: 'flex',
     direction: 'column',
@@ -35,7 +35,8 @@ const EmptyState: React.FC<IGenericEmptyStateProps> = ({
     padding: 8
   },
   dataTestId = 'empty-state',
-  emptyStateId = 'empty-state'
+  emptyStateId = 'empty-state',
+  devMessage
 }): JSX.Element => {
   return (
     <ChakraEmptyState.Root
@@ -88,6 +89,23 @@ const EmptyState: React.FC<IGenericEmptyStateProps> = ({
               className="text-center"
               text={description}
               textStyle="sm"
+            />
+          ) : null}
+          {devMessage && process.env.NODE_ENV === 'development' ? (
+            <Typography
+              textId={`${emptyStateId}-state-dev-message`}
+              dataTestId={`${dataTestId}-state-dev-message`}
+              weight="bold"
+              tagAs="p"
+              textLineHeight="shorter"
+              uppercase={false}
+              className="text-center"
+              text={`Dev Message --> ${devMessage}`}
+              textStyle="sm"
+              textColor={{
+                light: 'red.500',
+                dark: 'red.300'
+              }}
             />
           ) : null}
           {goBackButton ? goBackButton : null}

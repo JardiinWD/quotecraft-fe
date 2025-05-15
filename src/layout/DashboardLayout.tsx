@@ -46,7 +46,7 @@ const DashboardLayout: React.FC = (): JSX.Element => {
         }}
         backgroundColor={{
           light: 'gray.200',
-          dark: 'gray.500'
+          dark: 'gray.600'
         }}
       >
         <Outlet />

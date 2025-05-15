@@ -4,6 +4,7 @@ import LoginForm from './forms/auth/LoginForm'
 import EmptyState from './state/EmptyState'
 import RegisterFormEmptyState from './state/RegisterFormEmptyState'
 import ForgotPasswordFormEmptyState from './state/ForgotPasswordFormEmptyState'
+import NotFoundState from './state/NotFoundState'
 // --> Sidebar
 import NavItem from './sidebar/NavItem'
 // --> Dialogs
@@ -17,5 +18,6 @@ export {
   ForgotPasswordFormEmptyState,
   NavItem,
   BaseDialogs,
-  LogoutDialog
+  LogoutDialog,
+  NotFoundState
 }

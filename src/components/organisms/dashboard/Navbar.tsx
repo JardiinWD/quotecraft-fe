@@ -15,9 +15,9 @@ const Navbar: React.FC = (): JSX.Element => {
       right="0"
       height="5rem"
       width={'calc(100vw - 12.5rem)'}
-      backgroundColor={{ base: 'gray.100', _dark: 'gray.600' }}
+      backgroundColor={{ base: 'gray.100', _dark: 'gray.500' }}
       borderRight="1px"
-      borderRightColor={{ base: 'gray.100', _dark: 'gray.600' }}
+      borderRightColor={{ base: 'gray.100', _dark: 'gray.500' }}
       boxShadow={{
         base: '0 0 10px rgba(0, 0, 0, 0.1)',
         _dark: ''

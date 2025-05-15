@@ -1,3 +1,4 @@
+import { NotFoundState } from '@/components/molecules'
 import { JSX } from 'react'
 import { ErrorBoundary as ReactErrorBoundary } from 'react-error-boundary'
 
@@ -13,7 +14,7 @@ interface IErrorBoundaryProviderProps {
  */
 export const ErrorBoundaryProvider = ({
   children,
-  customFallback = <div>Something went Wrong</div>
+  customFallback = <NotFoundState />
 }: IErrorBoundaryProviderProps) => {
   return (
     <ReactErrorBoundary fallback={customFallback} onError={logError}>

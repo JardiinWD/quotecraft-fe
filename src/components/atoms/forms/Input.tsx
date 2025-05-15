@@ -43,7 +43,7 @@ const Input: React.FC<IInputProps> = ({
       _dark: 'teal.500'
     },
     textColor: {
-      base: 'gray.600',
+      base: 'gray.500',
       _dark: 'gray.100'
     },
     backgroundColor: {
@@ -52,7 +52,7 @@ const Input: React.FC<IInputProps> = ({
     },
     borderColor: {
       base: 'gray.400',
-      _dark: 'gray.600'
+      _dark: 'gray.500'
     },
     focusBorderColor: {
       base: 'teal.500',
