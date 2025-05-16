@@ -62,12 +62,21 @@ const BaseTable: React.FC<IBaseTableProps> = ({
       key={variant}
       size={tableSize}
       variant={variant}
+      border="1px solid"
+      borderColor="black.50"
     >
       {/* HEADER */}
       <Table.Header>
-        <Table.Row>
+        <Table.Row
+          backgroundColor={{
+            base: 'gray.300',
+            _dark: 'gray.800'
+          }}
+          borderBottom={'1px solid'}
+          borderColor="black.50"
+        >
           {columnHeaders.map((header) => (
-            <Table.ColumnHeader key={header}>
+            <Table.ColumnHeader borderRight={'1px solid'} key={header}>
               <Typography
                 textId={`${header}-row`}
                 dataTestId={`${header}-row`}
@@ -89,9 +98,25 @@ const BaseTable: React.FC<IBaseTableProps> = ({
       {/* BODY */}
       <Table.Body>
         {filteredTableData.map((row, rowIndex) => (
-          <Table.Row key={rowIndex}>
+          <Table.Row
+            key={rowIndex}
+            borderBottom={
+              rowIndex === filteredTableData.length - 1
+                ? undefined
+                : '1px solid'
+            }
+            borderColor="black.50"
+          >
             {columnHeaders.map((header) => (
-              <Table.Cell key={header}>
+              <Table.Cell
+                backgroundColor={{
+                  base: 'gray.50',
+                  _dark: 'gray.700'
+                }}
+                borderRight={'1px solid'}
+                borderColor="black.50"
+                key={header}
+              >
                 <Typography
                   textId={`${header}-cell-${rowIndex}`}
                   dataTestId={`${header}-cell-${rowIndex}`}
@@ -106,7 +131,12 @@ const BaseTable: React.FC<IBaseTableProps> = ({
               </Table.Cell>
             ))}
             {(hasEditButton || hasDeleteButton || hasShowButton) && (
-              <Table.Cell textAlign="center">
+              <Table.Cell
+                backgroundColor={{
+                  base: 'gray.50',
+                  _dark: 'gray.700'
+                }}
+              >
                 <FlexContainer
                   align="center"
                   flexContainerId={`actions-cell-${rowIndex}`}
@@ -120,8 +150,8 @@ const BaseTable: React.FC<IBaseTableProps> = ({
                     margin: 1
                   }}
                   backgroundColor={{
-                    light: 'gray.200',
-                    dark: 'gray.600'
+                    light: 'gray.50',
+                    dark: 'gray.700'
                   }}
                 >
                   {hasShowButton && (

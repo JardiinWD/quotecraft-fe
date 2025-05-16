@@ -29,7 +29,7 @@ const Invoices: React.FC = (): JSX.Element => {
       )}
       {data && data.length > 0 && status === 'success' && (
         <BaseTable
-          tableData={data.slice(0, 5)}
+          tableData={data.slice(0, 8)}
           variant="outline"
           columnHeaders={['name', 'email', 'updatedAt', 'createdAt']}
           columnHeadersToOmit={['id', 'avatar']}
