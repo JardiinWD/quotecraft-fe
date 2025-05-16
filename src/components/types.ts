@@ -87,6 +87,7 @@ export type TGenericOverflow = 'auto' | 'hidden' | 'scroll'
 // --> Generic Empty State Props
 export interface IGenericStyleProperties {
   width?: string[] | string | number | number[]
+  minWidth?: string[] | string | number | number[]
   height?: string | string[] | number
   textColor?: TDarkmodeColorReady
   outlineColor?: TDarkmodeColorReady

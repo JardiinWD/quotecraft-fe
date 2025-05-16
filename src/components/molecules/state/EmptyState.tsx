@@ -1,7 +1,8 @@
 import { EmptyState as ChakraEmptyState, VStack } from '@chakra-ui/react'
-import { JSX } from 'react'
+import React, { JSX } from 'react'
 import { IGenericEmptyStateProps } from '@/components/molecules/types'
-import { Typography } from '@/components/atoms'
+import { Spinner, Typography } from '@/components/atoms'
+import { useLoadingDelay } from '@/hooks'
 
 /**
  * @description - EmptyState component created using Chakra UI for displaying an empty state in the application.
@@ -25,6 +26,7 @@ const EmptyState: React.FC<IGenericEmptyStateProps> = ({
   actionButton = null,
   styleProperties = {
     width: ['45%', '45%', '45%', '60%'],
+    minWidth: [],
     height: 'fit-content',
     backgroundColor: { light: 'gray.50', dark: 'gray.600' },
     borderRadius: 'md',
@@ -42,81 +44,93 @@ const EmptyState: React.FC<IGenericEmptyStateProps> = ({
   emptyStateId = 'empty-state',
   devMessage
 }): JSX.Element => {
+  // -------------- CUSTOM HOOK
+  const isLoading = useLoadingDelay(2000)
+
   return (
-    <ChakraEmptyState.Root
-      data-testid={`${dataTestId}-state-wrapper`}
-      id={`${emptyStateId}-state-wrapper`}
-      backgroundColor={{
-        base: styleProperties.backgroundColor?.light,
-        _dark: styleProperties.backgroundColor?.dark
-      }}
-      width={styleProperties.width}
-      height={styleProperties.height}
-      rounded={styleProperties.borderRadius}
-      padding={styleProperties.padding}
-      gap={styleProperties.gap}
-      display={styleProperties.display}
-      flexDirection={styleProperties.direction}
-      justifyContent={styleProperties.justify}
-      alignItems={styleProperties.align}
-      as={styleProperties.as}
-      boxShadow={styleProperties.boxShadow}
-    >
-      <ChakraEmptyState.Content>
-        {icon ? (
-          <ChakraEmptyState.Indicator data-testid={`${dataTestId}-state-icon`}>
-            {icon}
-          </ChakraEmptyState.Indicator>
-        ) : null}
-        <VStack gap={styleProperties.gap} textAlign="center">
-          {title ? (
-            <Typography
-              textId={`${emptyStateId}-state-title`}
-              dataTestId={`${dataTestId}-state-title`}
-              weight="bold"
-              tagAs="h3"
-              textLineHeight="shorter"
-              uppercase={false}
-              className="text-center"
-              text={title}
-              textStyle="2xl"
-            />
-          ) : null}
-          {description ? (
-            <Typography
-              textId={`${emptyStateId}-state-description`}
-              dataTestId={`${dataTestId}-state-description`}
-              weight="medium"
-              tagAs="p"
-              textLineHeight="shorter"
-              uppercase={false}
-              className="text-center max-w-[60%]"
-              text={description}
-              textStyle="sm"
-            />
-          ) : null}
-          {devMessage && process.env.NODE_ENV === 'development' ? (
-            <Typography
-              textId={`${emptyStateId}-state-dev-message`}
-              dataTestId={`${dataTestId}-state-dev-message`}
-              weight="bold"
-              tagAs="p"
-              textLineHeight="shorter"
-              uppercase={false}
-              className="text-center"
-              text={`Dev Message --> ${devMessage}`}
-              textStyle="sm"
-              textColor={{
-                light: 'red.500',
-                dark: 'red.300'
-              }}
-            />
-          ) : null}
-          {goBackButton ? goBackButton : null}
-          {actionButton ? actionButton : null}
-        </VStack>
-      </ChakraEmptyState.Content>
-    </ChakraEmptyState.Root>
+    <React.Fragment>
+      {isLoading ? (
+        <Spinner spinnerId={`${emptyStateId}-spinner`} />
+      ) : (
+        <ChakraEmptyState.Root
+          data-testid={`${dataTestId}-state-wrapper`}
+          id={`${emptyStateId}-state-wrapper`}
+          backgroundColor={{
+            base: styleProperties.backgroundColor?.light,
+            _dark: styleProperties.backgroundColor?.dark
+          }}
+          width={styleProperties.width}
+          minWidth={styleProperties.minWidth}
+          height={styleProperties.height}
+          rounded={styleProperties.borderRadius}
+          padding={styleProperties.padding}
+          gap={styleProperties.gap}
+          display={styleProperties.display}
+          flexDirection={styleProperties.direction}
+          justifyContent={styleProperties.justify}
+          alignItems={styleProperties.align}
+          as={styleProperties.as}
+          boxShadow={styleProperties.boxShadow}
+        >
+          <ChakraEmptyState.Content>
+            {icon ? (
+              <ChakraEmptyState.Indicator
+                data-testid={`${dataTestId}-state-icon`}
+              >
+                {icon}
+              </ChakraEmptyState.Indicator>
+            ) : null}
+            <VStack gap={styleProperties.gap} textAlign="center">
+              {title ? (
+                <Typography
+                  textId={`${emptyStateId}-state-title`}
+                  dataTestId={`${dataTestId}-state-title`}
+                  weight="bold"
+                  tagAs="h3"
+                  textLineHeight="shorter"
+                  uppercase={false}
+                  className="text-center"
+                  text={title}
+                  textStyle="2xl"
+                />
+              ) : null}
+              {description ? (
+                <Typography
+                  textId={`${emptyStateId}-state-description`}
+                  dataTestId={`${dataTestId}-state-description`}
+                  weight="light"
+                  tagAs="p"
+                  textLineHeight="shorter"
+                  uppercase={false}
+                  className="text-center"
+                  text={description}
+                  textStyle="sm"
+                />
+              ) : null}
+              {goBackButton ? goBackButton : null}
+              {actionButton ? actionButton : null}
+              {devMessage && process.env.NODE_ENV === 'development' ? (
+                <Typography
+                  textId={`${emptyStateId}-state-dev-message`}
+                  dataTestId={`${dataTestId}-state-dev-message`}
+                  weight="bold"
+                  tagAs="p"
+                  textLineHeight="shorter"
+                  uppercase={false}
+                  className="text-center"
+                  text={`Dev Message --> ${devMessage}`}
+                  textStyle="sm"
+                  textColor={{
+                    light: 'red.500',
+                    dark: 'red.300'
+                  }}
+                />
+              ) : null}
+            </VStack>
+          </ChakraEmptyState.Content>
+        </ChakraEmptyState.Root>
+      )}
+    </React.Fragment>
   )
 }
 

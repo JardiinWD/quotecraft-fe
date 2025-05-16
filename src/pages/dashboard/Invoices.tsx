@@ -2,6 +2,8 @@ import { EmptyInvoiceState, NotFoundState } from '@/components/molecules'
 import { Box } from '@chakra-ui/react'
 import React, { JSX } from 'react'
 import { useLoaderData } from 'react-router-dom'
+import { Images } from '@/assets/images'
+import { Image } from '@/components/atoms'
 
 const Invoices: React.FC = (): JSX.Element => {
   // -------------- LOADER DATA
@@ -17,17 +19,32 @@ const Invoices: React.FC = (): JSX.Element => {
       justifyContent={'center'}
       display={'flex'}
     >
-      {!data && data.length <= 0 && status === 'success' && (
-        <EmptyInvoiceState />
+      {data && data.length > 0 && status === 'success' && (
+        <EmptyInvoiceState
+          onActionButtonClick={() =>
+            alert('Funzionalità ancora non disponibile')
+          }
+        />
       )}
       {status === 'error' && (
         <NotFoundState
           styleProperties={{
-            width: ['100%', '100%', '100%', '80%']
+            width: ['100%', '100%', '100%', '65%'],
+            minWidth: ['100%', '100%', '100%', '65%']
           }}
           errorTitle="Unable to Retrieve Invoices"
           message="We were unable to fetch your invoice data from our database. Please try again later or contact support if the issue persists."
           devMessage={error}
+          buttonText="Try Again"
+          customIcon={
+            <Image
+              src={Images.Error500}
+              alt="503 Error"
+              dataTestId="error-500-image"
+              htmlWidth={200}
+              htmlHeight={200}
+            />
+          }
         />
       )}
     </Box>

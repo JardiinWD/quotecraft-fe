@@ -6,7 +6,7 @@ import { MdOutlineDataArray } from 'react-icons/md'
 import { Link } from 'react-router-dom'
 
 /**
- * @description NotFoundState component - Displays a not found state with an error message and a button to go back.
+ * @description EmptyinvoiceState component - Displays a empty invoice state with an error message and a button to go create a new invoice.
  * @param {INotFoundStateProps} props - Props for the NotFoundState component
  * @param {string} message - Optional message to display
  * @param {string} errorTitle - Optional title for the error
@@ -14,21 +14,28 @@ import { Link } from 'react-router-dom'
  * @param {string} redirectTo - Optional redirect URL
  * @param {IGenericStyleProperties} styleProperties - Optional style properties for the component
  * @param {React.ReactNode} customIcon - Optional custom icon to display
+ * @param {string} buttonText - Optional text for the button
+ * @param {string} emptyStateId - Optional ID for the empty state
+ * @param {() => void} onActionButtonClick - Optional callback function for button click
+ * @param {string} createButtonText - Optional text for the create button
  * @param {TGenericTranslations} translations - Optional translations object
  */
 const EmptyInvoiceState: React.FC<IEmptyInvoiceStateProps> = ({
   message = 'There is no data to display at this time. Create a new invoice to get started.',
   errorTitle = 'No Data Available',
   devMessage,
-  redirectTo = '/dashboard/invoices'
+  redirectTo = '/dashboard/invoices',
+  createButtonText = 'Create New Invoice',
+  onActionButtonClick = () => {},
+  emptyStateId = 'empty-invoice-state'
 }): JSX.Element => {
   return (
     <EmptyState
       icon={
         <MdOutlineDataArray className="scale-150" size={68} color="#14b8a6" />
       }
-      dataTestId="empty-invoices-state"
-      emptyStateId="empty-invoices-state"
+      dataTestId={`${emptyStateId}`}
+      emptyStateId={`${emptyStateId}`}
       styleProperties={{
         width: ['100%', '100%', '100%', '100%'],
         height: 'fit-content',
@@ -50,14 +57,15 @@ const EmptyInvoiceState: React.FC<IEmptyInvoiceStateProps> = ({
         <Link to={redirectTo}>
           <Button
             size="md"
-            buttonText={'Create New Invoice'}
+            buttonText={createButtonText}
+            onClick={onActionButtonClick}
             variant="solid"
             disabled={false}
             spinnerPlacement="start"
             rounded="lg"
             type="button"
-            buttonId="goback-register-empty-button"
-            dataTestId="goback-register-empty-button"
+            buttonId={`${emptyStateId}-button`}
+            dataTestId={`${emptyStateId}-button`}
             padding="0.5rem 1rem"
             fontWeight="bold"
             width={['auto', 'auto', 'auto', '12.5rem']}

@@ -54,6 +54,8 @@ export interface INotFoundStateProps extends TGenericTranslations {
   redirectTo?: string
   styleProperties?: IGenericStyleProperties
   customIcon?: React.ReactNode
+  buttonText?: string
+  goBackButton?: React.ReactNode
 }
 
 // ------------- NOT FOUND STATE
@@ -63,6 +65,9 @@ export interface IEmptyInvoiceStateProps extends TGenericTranslations {
   statusText?: string
   devMessage?: string
   redirectTo?: string
+  createButtonText?: string
+  onActionButtonClick?: () => void
+  emptyStateId?: string
 }
 
 // -------------

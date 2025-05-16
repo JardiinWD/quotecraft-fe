@@ -167,4 +167,18 @@ export interface IImageProps {
   htmlHeight?: number
   fit?: TImageFit
   dataTestId?: string
+  additionalStyleProperties?: IGenericStyleProperties
+}
+
+// -------------
+// ------------- CHAKRA SPINNER
+// -------------
+
+export interface ISpinnerProps {
+  size?: {
+    width: string | number
+    height: string | number
+  }
+  color?: TDarkmodeColorReady
+  spinnerId?: string
 }

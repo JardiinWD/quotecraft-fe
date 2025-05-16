@@ -7,6 +7,7 @@ import Button from './common/Button'
 import FlexContainer from './common/FlexContainer'
 import Image from './common/Image'
 import LanguageSetter from './common/LanguageSetter'
+import Spinner from './common/Spinner'
 // --> Forms Atoms
 import Input from './forms/Input'
 // --> User Atoms
@@ -21,5 +22,6 @@ export {
   LanguageSetter,
   Image,
   Input,
-  UserPill
+  UserPill,
+  Spinner
 }

@@ -4,7 +4,7 @@ import { IMockApi } from '@/api/types'
 
 // ----------- API ISTANCE
 const mockInvoicesApi = axios.create({
-  baseURL: `https://${import.meta.env.VITE_MOCKAPI_URL_SECRET}_.mockapi.io/${import.meta.env.VITE_MOCKAPI_API_PREFIX}`,
+  baseURL: `https://${import.meta.env.VITE_MOCKAPI_URL_SECRET}.mockapi.io/${import.meta.env.VITE_MOCKAPI_API_PREFIX}`,
   headers: {
     'Content-Type': 'application/json'
   }
