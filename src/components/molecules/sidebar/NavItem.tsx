@@ -38,7 +38,7 @@ const NavItem: React.FC<NavItemProps> = ({
         <Icon
           color={{
             base: isActive ? 'teal.500' : 'black.50',
-            _dark: isActive ? 'white.100' : 'gray.300'
+            _dark: isActive ? 'teal.500' : 'gray.50'
           }}
           mr="3"
           fontSize="18"
@@ -47,7 +47,7 @@ const NavItem: React.FC<NavItemProps> = ({
         <Typography
           textColor={{
             light: isActive ? 'teal.500' : 'black.50',
-            dark: isActive ? 'white.100' : 'gray.300'
+            dark: isActive ? 'teal.500' : 'gray.50'
           }}
           textId={`${navLinkContext}-nav-item-text`}
           dataTestId={`${navLinkContext}-nav-item-text`}

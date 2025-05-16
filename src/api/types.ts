@@ -138,11 +138,11 @@ export interface IGetPostsResponse extends Record<string, unknown> {
 }
 
 // ------------ DATA
-export type TPromiseData = IGetUsersResponse[] & IGetPostsResponse[]
+export type TInvoicesData = IGetUsersResponse[] & IGetPostsResponse[]
 
 // ------------ PROMISE
 interface IMockPromise {
-  data: TPromiseData | []
+  data: TInvoicesData | []
   error: TPromiseError
   status: TPromiseStatus
 }

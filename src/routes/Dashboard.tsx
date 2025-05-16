@@ -41,7 +41,7 @@ const Dashboard: RouteObject = {
       element: <Invoices />,
       loader: async () => {
         // Load the translations for the login page
-        const { data, error, status } = await loadDashboardData('posts')
+        const { data, error, status } = await loadDashboardData('users')
 
         return { data, error, status }
       }

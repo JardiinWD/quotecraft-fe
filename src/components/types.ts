@@ -26,6 +26,7 @@ export type TCustomColorPalette =
   | 'teal'
   | 'green'
   | 'orange'
+  | 'yellow'
 
 // --> Possible Custom Sizes
 export type TCustomSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl'

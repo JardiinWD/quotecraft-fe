@@ -4,6 +4,7 @@ import React, { JSX } from 'react'
 import { useLoaderData } from 'react-router-dom'
 import { Images } from '@/assets/images'
 import { Image } from '@/components/atoms'
+import { BaseTable } from '@/components/ui'
 
 const Invoices: React.FC = (): JSX.Element => {
   // -------------- LOADER DATA
@@ -15,15 +16,23 @@ const Invoices: React.FC = (): JSX.Element => {
       fontSize="2xl"
       fontWeight="bold"
       lineHeight="shorter"
-      alignItems={'center'}
-      justifyContent={'center'}
-      display={'flex'}
+      alignItems="center"
+      justifyContent="center"
+      display="flex"
     >
-      {data && data.length > 0 && status === 'success' && (
+      {!data && data.length <= 0 && status === 'success' && (
         <EmptyInvoiceState
           onActionButtonClick={() =>
             alert('Funzionalità ancora non disponibile')
           }
+        />
+      )}
+      {data && data.length > 0 && status === 'success' && (
+        <BaseTable
+          tableData={data.slice(0, 5)}
+          variant="outline"
+          columnHeaders={['name', 'email', 'updatedAt', 'createdAt']}
+          columnHeadersToOmit={['id', 'avatar']}
         />
       )}
       {status === 'error' && (
