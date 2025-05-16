@@ -4,5 +4,7 @@
 import { MockAuthApi } from './auth/mock'
 // --> AppWrite Api
 import { AppWriteApi } from './appwrite/appwrite'
+// --> Invoices Api (Mocked)
+import { MockInvoicesApi } from './invoices/mock'
 
-export { MockAuthApi, AppWriteApi }
+export { MockAuthApi, AppWriteApi, MockInvoicesApi }

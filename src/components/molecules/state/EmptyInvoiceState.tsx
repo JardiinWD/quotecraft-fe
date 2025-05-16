@@ -1,9 +1,9 @@
 import { Button } from '@/components/atoms'
 import { EmptyState } from '@/components/molecules'
-import { INotFoundStateProps } from '@/components/molecules/types'
+import { IEmptyInvoiceStateProps } from '@/components/molecules/types'
 import React, { JSX } from 'react'
-import { TbError404 } from 'react-icons/tb'
-import { Link, useRouteError } from 'react-router-dom'
+import { MdOutlineDataArray } from 'react-icons/md'
+import { Link } from 'react-router-dom'
 
 /**
  * @description NotFoundState component - Displays a not found state with an error message and a button to go back.
@@ -16,34 +16,21 @@ import { Link, useRouteError } from 'react-router-dom'
  * @param {React.ReactNode} customIcon - Optional custom icon to display
  * @param {TGenericTranslations} translations - Optional translations object
  */
-
-const NotFoundState: React.FC<INotFoundStateProps> = ({
-  message = 'It seems like you have landed on a page that does not exist.',
-  errorTitle = 'Ops! Something went wrong',
+const EmptyInvoiceState: React.FC<IEmptyInvoiceStateProps> = ({
+  message = 'There is no data to display at this time. Create a new invoice to get started.',
+  errorTitle = 'No Data Available',
   devMessage,
-  redirectTo = '/dashboard/invoices',
-  styleProperties = {
-    width: ['100%', '100%', '100%', '100%']
-  },
-  customIcon = <TbError404 className="scale-150" size={68} color="#14b8a6" />
+  redirectTo = '/dashboard/invoices'
 }): JSX.Element => {
-  // ---------- USE ROUTE ERROR HOOK
-  const error = useRouteError()
-
-  console.log('error', error)
-
-  const errorMessage =
-    error && typeof error === 'object' && 'message' in error
-      ? (error as { message: string }).message
-      : 'Unknown error occurred'
-
   return (
     <EmptyState
-      icon={customIcon}
-      dataTestId="not-found-state"
-      emptyStateId="not-found-state"
+      icon={
+        <MdOutlineDataArray className="scale-150" size={68} color="#14b8a6" />
+      }
+      dataTestId="empty-invoices-state"
+      emptyStateId="empty-invoices-state"
       styleProperties={{
-        width: styleProperties.width,
+        width: ['100%', '100%', '100%', '100%'],
         height: 'fit-content',
         backgroundColor: { light: 'gray.50', dark: 'gray.600' },
         borderRadius: 'md',
@@ -53,18 +40,17 @@ const NotFoundState: React.FC<INotFoundStateProps> = ({
         align: 'center',
         wrap: 'nowrap',
         as: 'div',
-        boxShadow: 'lg',
         gap: 4,
         padding: 8
       }}
       title={errorTitle} // TODO : ADD TRANSLATIONS
       description={message} // TODO : ADD TRANSLATIONS
-      devMessage={devMessage ?? errorMessage}
-      goBackButton={
+      devMessage={devMessage}
+      actionButton={
         <Link to={redirectTo}>
           <Button
             size="md"
-            buttonText={'Go Back'}
+            buttonText={'Create New Invoice'}
             variant="solid"
             disabled={false}
             spinnerPlacement="start"
@@ -82,4 +68,4 @@ const NotFoundState: React.FC<INotFoundStateProps> = ({
   )
 }
 
-export default NotFoundState
+export default EmptyInvoiceState

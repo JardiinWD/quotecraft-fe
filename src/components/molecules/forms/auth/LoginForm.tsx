@@ -39,7 +39,7 @@ const LoginForm: React.FC<ILoginFormProps> = ({
       width={['75%', '75%', '75%', '45%']}
       height={'fit-content'}
       onSubmit={handleSubmit(onSubmit)}
-      backgroundColor={{ _light: 'gray.100', _dark: 'gray.500' }}
+      backgroundColor={{ _light: 'gray.50', _dark: 'gray.600' }}
       rounded={'xl'}
       padding={5}
       display={'flex'}
@@ -56,6 +56,7 @@ const LoginForm: React.FC<ILoginFormProps> = ({
         direction="column"
         justify="center"
         align="flex-start"
+        backgroundColor={{ light: 'gray.50', dark: 'gray.600' }}
       >
         <Typography
           textId="signin-form-heading"

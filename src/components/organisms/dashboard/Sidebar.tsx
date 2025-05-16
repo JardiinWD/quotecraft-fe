@@ -58,7 +58,7 @@ const Sidebar: React.FC = () => {
 
   // ------------ NAVIGATION ITEMS
   const navItems = [
-    { name: 'Home', icon: FiHome, path: '/dashboard/invoices' },
+    { name: 'Invoices', icon: FiHome, path: '/dashboard/invoices' },
     { name: 'Analytics', icon: IoAnalytics, path: '/dashboard/analytics' },
     { name: 'Parameters', icon: SiTableau, path: '/dashboard/parameters' },
     { name: 'Customers', icon: FaUsers, path: '/dashboard/customers' },
@@ -76,9 +76,9 @@ const Sidebar: React.FC = () => {
         left="0"
         h="100vh"
         w="200px"
-        backgroundColor={{ base: 'gray.100', _dark: 'gray.500' }}
+        backgroundColor={{ base: 'gray.50', _dark: 'gray.500' }}
         /* borderRight="1px"
-        borderRightColor={{ base: 'gray.100', _dark: 'gray.500' }} */
+        borderRightColor={{ base: 'gray.50', _dark: 'gray.600' }} */
         boxShadow={{
           base: '0 0 10px rgba(0, 0, 0, 0.1)',
           _dark: ''
@@ -131,9 +131,9 @@ const Sidebar: React.FC = () => {
           h="fit-content"
           w="100%"
           padding={4}
-          backgroundColor={{ base: 'gray.100', _dark: 'gray.500' }}
+          backgroundColor={{ base: 'gray.50', _dark: 'gray.500' }}
           borderRight="1px"
-          borderRightColor={{ base: 'gray.100', _dark: 'gray.500' }}
+          borderRightColor={{ base: 'gray.50', _dark: 'gray.500' }}
           transition="0.3s ease"
           zIndex="1000"
           className="relative"

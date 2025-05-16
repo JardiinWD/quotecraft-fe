@@ -5,6 +5,8 @@ import { Login, Register, ForgotPassword } from '@/pages'
 import { AuthLayout } from '@/layout'
 // --> API Layers
 import { AppWriteApi } from '@/api'
+// --> Components
+import { NotFoundState } from '@/components/molecules'
 
 // --> Handlers
 
@@ -42,7 +44,6 @@ const Auth: RouteObject = {
       path: 'login',
       caseSensitive: true,
       element: <Login />,
-      errorElement: <div>Auth Error Page</div>,
       loader: async () => {
         // Load the translations for the login page
         const { translations } = await loadApiTranslations(
@@ -77,6 +78,11 @@ const Auth: RouteObject = {
         )
         return translations
       }
+    },
+    {
+      path: '*',
+      caseSensitive: true,
+      element: <NotFoundState redirectTo="/auth/login" />
     }
   ],
   errorElement: <div>Auth Error Page</div>

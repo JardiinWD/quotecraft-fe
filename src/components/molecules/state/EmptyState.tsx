@@ -12,6 +12,9 @@ import { Typography } from '@/components/atoms'
  * @param {IGenericStyleProperties} styleProperties - The style properties for the empty state.
  * @param {string} dataTestId - The data-testid attribute for testing purposes.
  * @param {string} emptyStateId - The ID of the empty state element.
+ * @param {string} devMessage - The developer message to display in development mode.
+ * @param {React.ReactNode} actionButton - The action button to display in the empty state.
+ * @param {() => void} onActionButtonClick - The function to call when the action button is clicked.
  * @returns {JSX.Element} - The rendered EmptyState component.
  */
 const EmptyState: React.FC<IGenericEmptyStateProps> = ({
@@ -19,10 +22,11 @@ const EmptyState: React.FC<IGenericEmptyStateProps> = ({
   description = 'There is no data to display at this time.',
   icon = null,
   goBackButton = null,
+  actionButton = null,
   styleProperties = {
     width: ['45%', '45%', '45%', '60%'],
     height: 'fit-content',
-    backgroundColor: { light: 'gray.100', dark: 'gray.500' },
+    backgroundColor: { light: 'gray.50', dark: 'gray.600' },
     borderRadius: 'md',
     display: 'flex',
     direction: 'column',
@@ -82,11 +86,11 @@ const EmptyState: React.FC<IGenericEmptyStateProps> = ({
             <Typography
               textId={`${emptyStateId}-state-description`}
               dataTestId={`${dataTestId}-state-description`}
-              weight="regular"
+              weight="medium"
               tagAs="p"
               textLineHeight="shorter"
               uppercase={false}
-              className="text-center"
+              className="text-center max-w-[60%]"
               text={description}
               textStyle="sm"
             />
@@ -109,6 +113,7 @@ const EmptyState: React.FC<IGenericEmptyStateProps> = ({
             />
           ) : null}
           {goBackButton ? goBackButton : null}
+          {actionButton ? actionButton : null}
         </VStack>
       </ChakraEmptyState.Content>
     </ChakraEmptyState.Root>

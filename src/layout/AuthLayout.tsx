@@ -18,6 +18,13 @@ const AuthLayout: React.FC = (): JSX.Element => {
   // Check if the user has landed on the /dashboard route
   if (location.pathname === '/auth') return <Navigate to="/auth/login" />
 
+  // -------------- ERROR CONDITION
+  const pathnamesAvaliable = [
+    '/auth/login',
+    '/auth/register',
+    '/auth/forgot-password'
+  ].includes(location.pathname as string)
+
   return (
     <React.Fragment>
       {/* METADATA */}
@@ -36,33 +43,38 @@ const AuthLayout: React.FC = (): JSX.Element => {
         className="w-screen h-screen"
         flexContainerId={`${title}-auth-page`}
         dataTestId={`${title}-auth-page`}
+        backgroundColor={{ light: 'gray.50', dark: 'gray.600' }}
       >
         {/* AUTH LAYOUT ILLUSTRATION CONTAINER */}
-        <FlexContainer
-          direction="row"
-          justify="center"
-          align="center"
-          className="!hidden lg:w-[50%] lg:!flex h-full"
-          flexContainerId={`${title}-auth-illustration`}
-          dataTestId={`${title}-auth-illustration`}
-          backgroundColor={{
-            light: 'gray.100',
-            dark: 'gray.500'
-          }}
-        >
-          <Image
-            src={Images.LoginIllustration}
-            alt="Authentication Illustration"
-            htmlWidth={550}
-            htmlHeight={550}
-          />
-        </FlexContainer>
+        {pathnamesAvaliable && (
+          <FlexContainer
+            direction="row"
+            justify="center"
+            align="center"
+            className="!hidden lg:w-[50%] lg:!flex h-full"
+            flexContainerId={`${title}-auth-illustration`}
+            dataTestId={`${title}-auth-illustration`}
+            backgroundColor={{
+              light: 'gray.50',
+              dark: 'gray.600'
+            }}
+          >
+            <Image
+              src={Images.LoginIllustration}
+              alt="Authentication Illustration"
+              htmlWidth={550}
+              htmlHeight={550}
+            />
+          </FlexContainer>
+        )}
         {/* AUTH LAYOUT OUTLET CONTAINER */}
         <FlexContainer
           direction="row"
           justify="center"
           align="center"
-          className="w-[100%] lg:w-[50%] lg:!flex h-full relative"
+          className={`${
+            pathnamesAvaliable ? 'w-[100%] lg:w-[50%]' : 'w-[100%]'
+          } lg:!flex h-full relative`}
           flexContainerId={`${title}-auth-form`}
           dataTestId={`${title}-auth-form`}
           backgroundColor={{

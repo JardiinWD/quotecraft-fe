@@ -4,7 +4,10 @@ export type TPromiseError = string | unknown | null | Error
 // ------------ COMMON STATUS API LAYER
 export type TPromiseStatus = 'success' | 'error'
 
+// ------------
 // ------------ AUTHENTICATION DATA
+// ------------
+
 export interface IAuthData {
   id: number
   username: string
@@ -104,4 +107,55 @@ export interface IAppWriteApi {
     databaseId: string,
     collectionId: string
   ) => Promise<IAppWritePromise>
+}
+
+// ------------
+// ------------ INVOICES DATA (MockAPI)
+// ------------
+
+// ------------  RESOURCES
+export type TMockedResources = 'users' | 'posts'
+
+// ------------ GET USERS RESPONSE
+export interface IGetUsersResponse extends Record<string, unknown> {
+  id: string
+  name: string
+  email: string
+  avatar: string
+  createdAt: string
+  updatedAt: string
+}
+
+// ------------ GET POSTS RESPONSE
+export interface IGetPostsResponse extends Record<string, unknown> {
+  id: string
+  title: string
+  content: string
+  createdAt: string
+  updatedAt: string
+  isPublished: boolean
+  author: string
+}
+
+// ------------ DATA
+export type TPromiseData = IGetUsersResponse[] & IGetPostsResponse[]
+
+// ------------ PROMISE
+interface IMockPromise {
+  data: TPromiseData | []
+  error: TPromiseError
+  status: TPromiseStatus
+}
+
+export interface IMockApi {
+  getResource: (slug: string, options?: object) => Promise<IMockPromise>
+  getResourceById: (
+    slug: string,
+    id: string,
+    options?: object
+  ) => Promise<IMockPromise>
+  handleResourceErrors: (
+    error: Error | string | unknown,
+    context: string
+  ) => Promise<IMockPromise>
 }

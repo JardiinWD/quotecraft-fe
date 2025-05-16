@@ -5,6 +5,7 @@ import EmptyState from './state/EmptyState'
 import RegisterFormEmptyState from './state/RegisterFormEmptyState'
 import ForgotPasswordFormEmptyState from './state/ForgotPasswordFormEmptyState'
 import NotFoundState from './state/NotFoundState'
+import EmptyInvoiceState from './state/EmptyInvoiceState'
 // --> Sidebar
 import NavItem from './sidebar/NavItem'
 // --> Dialogs
@@ -16,8 +17,9 @@ export {
   EmptyState,
   RegisterFormEmptyState,
   ForgotPasswordFormEmptyState,
+  NotFoundState,
+  EmptyInvoiceState,
   NavItem,
   BaseDialogs,
-  LogoutDialog,
-  NotFoundState
+  LogoutDialog
 }

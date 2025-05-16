@@ -24,6 +24,9 @@ export default defineConfig({
     VITE_APPWRITE_LOGIN_COLLECTION_ID: `"${process.env.VITE_APPWRITE_LOGIN_COLLECTION_ID}"`,
     VITE_APPWRITE_REGISTER_COLLECTION_ID: `"${process.env.VITE_APPWRITE_REGISTER_COLLECTION_ID}"`,
     VITE_APPWRITE_FORGOT_PASSWORD_COLLECTION_ID: `"${process.env.VITE_APPWRITE_FORGOT_PASSWORD_COLLECTION_ID}"`,
+    /* MOCKAPI */
+    VITE_MOCKAPI_URL_SECRET: `"${process.env.VITE_MOCKAPI_URL_SECRET}"`,
+    VITE_MOCKAPI_API_PREFIX: `"${process.env.VITE_MOCKAPI_API_PREFIX}"`,
   },
   plugins: [react(), tsconfigPaths(), svgr(), ViteMinifyPlugin()],
   server: {

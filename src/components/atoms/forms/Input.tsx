@@ -2,6 +2,7 @@ import { Input as ChakraInput, Field } from '@chakra-ui/react'
 import React, { JSX, useState } from 'react'
 import { IInputProps, TFormInputType } from '@/components/atoms/types'
 import { FaRegEye, FaRegEyeSlash } from 'react-icons/fa'
+import { useColorMode } from '@/components/ui/color-mode'
 
 interface IState {
   inputType: TFormInputType
@@ -43,16 +44,16 @@ const Input: React.FC<IInputProps> = ({
       _dark: 'teal.500'
     },
     textColor: {
-      base: 'gray.500',
-      _dark: 'gray.100'
+      base: 'gray.600',
+      _dark: 'gray.50'
     },
     backgroundColor: {
-      base: 'gray.100',
-      _dark: 'gray.500'
+      base: 'gray.50',
+      _dark: 'gray.600'
     },
     borderColor: {
       base: 'gray.400',
-      _dark: 'gray.500'
+      _dark: 'teal.500'
     },
     focusBorderColor: {
       base: 'teal.500',
@@ -65,6 +66,9 @@ const Input: React.FC<IInputProps> = ({
   const [state, setState] = useState<IState>({
     inputType: type
   })
+
+  // ------------- HOOKS
+  const { colorMode } = useColorMode()
 
   // ------------- HANDLERS
   const handleInputType = () => {
@@ -105,7 +109,7 @@ const Input: React.FC<IInputProps> = ({
         borderWidth={additionalStyleProperties.borderWidth}
         focusBorderColor={additionalStyleProperties.focusBorderColor}
         _placeholder={{
-          color: 'gray.400'
+          color: { base: 'gray.400', _dark: 'gray.50' }
         }}
         id={`${inputId}-input`}
         type={state.inputType}
@@ -116,13 +120,13 @@ const Input: React.FC<IInputProps> = ({
           <FaRegEye
             onClick={handleInputType}
             className="absolute right-2 top-9"
-            color={'#3f3f46'}
+            color={`${colorMode === 'light' ? '#3f3f46' : '#f4f4f5'}`}
           />
         ) : (
           <FaRegEyeSlash
             onClick={handleInputType}
             className="absolute right-2 top-9"
-            color={'#3f3f46'}
+            color={`${colorMode === 'light' ? '#3f3f46' : '#f4f4f5'}`}
           />
         ))}
       {/* HELPER TEXT */}
@@ -131,7 +135,7 @@ const Input: React.FC<IInputProps> = ({
           data-testid={`input-${dataTestId}-helper-text`}
           fontWeight={400}
           fontSize="2xs"
-          fontStyle={'italic'}
+          fontStyle="italic"
         >
           {helperText}
         </Field.HelperText>

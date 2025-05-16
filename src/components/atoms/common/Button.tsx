@@ -19,7 +19,7 @@ import { IButtonProps } from '@/components/atoms/types'
  * @param {string} type - The type of the button. Default is 'button'.
  * @param {string} buttonId - The ID of the button element.
  * @param {string} dataTestId - The data-testid attribute for testing purposes.
- * @param {string} backgroundColor - The background color of the button. Default is 'gray.100'.
+ * @param {string} backgroundColor - The background color of the button. Default is 'gray.50'.
  * @param {string} textColor - The text color of the button. Default is 'black.500'.
  * @param {string} padding - The padding of the button. Default is '0.5rem 1rem'.
  * @param {string} className - Additional class names for the button.
@@ -46,12 +46,20 @@ const Button: React.FC<IButtonProps> = ({
   buttonId,
   dataTestId,
   backgroundColor = {
-    light: 'gray.200',
+    light: 'teal.500',
     dark: 'teal.500'
   },
   textColor = {
     light: 'black.50',
     dark: 'gray.800'
+  },
+  borderColor = {
+    light: '',
+    dark: 'gray.200'
+  },
+  outlineColor = {
+    light: '',
+    dark: 'gray.200'
   },
   padding = '0.5rem 1rem',
   className = '',
@@ -68,12 +76,19 @@ const Button: React.FC<IButtonProps> = ({
       padding={padding}
       color={{ base: textColor?.light, _dark: textColor?.dark }}
       type={type}
+      outlineColor={{
+        base: outlineColor?.light,
+        _dark: outlineColor?.dark
+      }}
+      borderColor={{
+        base: borderColor?.light,
+        _dark: borderColor?.dark
+      }}
       id={buttonId}
       rounded={rounded}
       loading={loading}
       loadingText={loadingText}
       spinnerPlacement={spinnerPlacement}
-      colorPalette={colorPalette}
       disabled={disabled}
       data-testid={dataTestId}
       size={size}
@@ -84,8 +99,7 @@ const Button: React.FC<IButtonProps> = ({
       fontSize={fontSize}
       fontWeight={fontWeight}
       _hover={{
-        backgroundColor: `${colorPalette}.600`,
-        color: `${colorPalette}.100`
+        backgroundColor: `${colorPalette}.600`
       }}
       width={width}
     >

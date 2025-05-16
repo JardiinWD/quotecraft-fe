@@ -100,6 +100,8 @@ export interface IButtonProps {
   fontSize?: TCustomSize
   fontWeight?: string
   width?: IGenericStyleProperties['width']
+  borderColor?: TDarkmodeColorReady
+  outlineColor?: TDarkmodeColorReady
 }
 
 // -------------

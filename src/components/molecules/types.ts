@@ -18,6 +18,7 @@ export interface IGenericEmptyStateProps {
   styleProperties?: IGenericStyleProperties
   dataTestId?: string
   emptyStateId?: string
+  actionButton?: React.ReactNode
 }
 
 // -------------
@@ -31,27 +32,37 @@ export interface ILoginFormProps extends TGenericTranslations {
 }
 
 // -------------
-// ------------- REGISTER FORM EMPTY STATE
+// ------------- EMPTY STATES
 // -------------
+
+// ------------- REGISTER FORM EMPTY STATE
 
 export interface IRegisterFormEmptyStateProps extends TGenericTranslations {}
 
-// -------------
 // ------------- FORGOT PASSWORD FORM EMPTY STATE
-// -------------
 
 export interface IForgotPasswordFormEmptyStateProps
   extends TGenericTranslations {}
 
-// -------------
 // ------------- NOT FOUND STATE
-// -------------
 
 export interface INotFoundStateProps extends TGenericTranslations {
   message?: string
   errorTitle?: string
   statusText?: string
   devMessage?: string
+  redirectTo?: string
+  styleProperties?: IGenericStyleProperties
+  customIcon?: React.ReactNode
+}
+
+// ------------- NOT FOUND STATE
+export interface IEmptyInvoiceStateProps extends TGenericTranslations {
+  message?: string
+  errorTitle?: string
+  statusText?: string
+  devMessage?: string
+  redirectTo?: string
 }
 
 // -------------
