@@ -21,6 +21,8 @@ const Login: React.FC = (): JSX.Element => {
   // -------------- HOOKS
   const navigate = useNavigate()
 
+  throw new Error('useLoaderData is not defined')
+
   // -------------- LOADER DATA
   const translations = useLoaderData()
 

@@ -1,9 +1,9 @@
+import { Images } from '@/assets/images'
+import { FlexContainer, Helmet, Image } from '@/components/atoms'
+import { ColorModeButton } from '@/components/ui'
+import { retrieveHelmetData } from '@/functions/metadata'
 import React, { JSX } from 'react'
 import { Navigate, Outlet, useLocation } from 'react-router-dom'
-import { Helmet, FlexContainer, Image } from '@/components/atoms'
-import { retrieveHelmetData } from '@/functions/metadata'
-import { Images } from '@/assets/images'
-import { ColorModeButton } from '@/components/ui'
 
 const AuthLayout: React.FC = (): JSX.Element => {
   // -------------- HOOKS
@@ -74,7 +74,7 @@ const AuthLayout: React.FC = (): JSX.Element => {
           align="center"
           className={`${
             pathnamesAvaliable ? 'w-[100%] lg:w-[50%]' : 'w-[100%]'
-          } lg:!flex h-full relative`}
+          } w-[100%] lg:!flex h-full relative`}
           flexContainerId={`${title}-auth-form`}
           dataTestId={`${title}-auth-form`}
           backgroundColor={{

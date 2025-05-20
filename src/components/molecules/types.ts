@@ -119,3 +119,15 @@ export interface IBaseDialogsProps {
 
 // ------------- LOGOUT DIALOG
 export interface ILogoutDialogProps extends IBaseDialogsProps {}
+
+// -------------
+// ------------- EMPTY CARD
+// -------------
+
+export interface IEmptyCardProps {
+  cardMessage?: string
+  cardError?: string
+  buttonText?: string
+  onClickHandler?: () => void
+  dataTestId?: string
+}

@@ -23,8 +23,8 @@ const NotFoundState: React.FC<INotFoundStateProps> = ({
   devMessage,
   redirectTo = '/dashboard/invoices',
   styleProperties = {
-    width: ['100%', '100%', '100%', '100%'],
-    minWidth: ['100%', '100%', '100%', '100%']
+    width: ['50%', '50%', '50%', '50%'],
+    minWidth: ['50%', '50%', '50%', '50%']
   },
   customIcon = (
     <Image

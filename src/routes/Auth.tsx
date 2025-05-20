@@ -1,6 +1,6 @@
 import { type RouteObject } from 'react-router-dom'
 // --> Pages
-import { Login, Register, ForgotPassword } from '@/pages'
+import { Login, Register, ForgotPassword, BaseError } from '@/pages'
 // --> Layouts
 import { AuthLayout } from '@/layout'
 // --> API Layers
@@ -39,11 +39,13 @@ const loadApiTranslations = async (
 const Auth: RouteObject = {
   path: '/auth',
   element: <AuthLayout />,
+  errorElement: <BaseError />,
   children: [
     {
       path: 'login',
       caseSensitive: true,
       element: <Login />,
+      errorElement: <BaseError />,
       loader: async () => {
         // Load the translations for the login page
         const { translations } = await loadApiTranslations(
@@ -57,6 +59,7 @@ const Auth: RouteObject = {
       path: 'register',
       caseSensitive: true,
       element: <Register />,
+      errorElement: <BaseError />,
       loader: async () => {
         // Load the translations for the login page
         const { translations } = await loadApiTranslations(
@@ -70,6 +73,7 @@ const Auth: RouteObject = {
       path: 'forgot-password',
       caseSensitive: true,
       element: <ForgotPassword />,
+      errorElement: <BaseError />,
       loader: async () => {
         // Load the translations for the login page
         const { translations } = await loadApiTranslations(
@@ -82,10 +86,17 @@ const Auth: RouteObject = {
     {
       path: '*',
       caseSensitive: true,
-      element: <NotFoundState redirectTo="/auth/login" />
+      element: (
+        <NotFoundState
+          redirectTo="/auth/login"
+          styleProperties={{
+            width: ['30%', '30%', '30%', '30%'],
+            minWidth: ['30%', '30%', '30%', '30%']
+          }}
+        />
+      )
     }
-  ],
-  errorElement: <div>Auth Error Page</div>
+  ]
 }
 
 export default Auth

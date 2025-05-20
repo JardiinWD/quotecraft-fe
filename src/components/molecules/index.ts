@@ -12,6 +12,9 @@ import NavItem from './sidebar/NavItem'
 import BaseDialogs from './dialogs/BaseDialogs'
 import LogoutDialog from './dialogs/LogoutDialog'
 
+// --> Common
+import EmptyCard from './common/EmptyCard'
+
 export {
   LoginForm,
   EmptyState,
@@ -21,5 +24,6 @@ export {
   EmptyInvoiceState,
   NavItem,
   BaseDialogs,
-  LogoutDialog
+  LogoutDialog,
+  EmptyCard
 }

@@ -13,6 +13,9 @@ import Customers from './dashboard/Customers'
 // --> Invoices Page
 import SingleInvoice from './invoice/SingleInvoice'
 
+// --> Errors Page
+import { BaseError } from './error/BaseError'
+
 export {
   // --> Authentication Page
   Login,
@@ -27,5 +30,8 @@ export {
   Customers,
 
   // --> Invoices Page
-  SingleInvoice
+  SingleInvoice,
+
+  // --> Errors Page
+  BaseError
 }
